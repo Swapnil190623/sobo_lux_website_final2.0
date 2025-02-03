@@ -1,0 +1,56 @@
+.scrollable-row {
+    position: relative;
+    width: 100%;
+  }
+  
+  .scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    gap: 20px;
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+  }
+  
+  .scroll-container {
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+  }
+  
+  .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .scroll-arrow.left {
+    left: 10px;
+  }
+  
+  .scroll-arrow.right {
+    right: 10px;
+  }
+  
+  .scroll-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .scroll-arrow:disabled,
+  .scroll-arrow.opacity-50 {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

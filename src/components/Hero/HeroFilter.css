@@ -1,0 +1,428 @@
+/* Media Query for screens between 1024px and 768px (tablets) */
+@media screen and (max-width: 1024px) {
+  .hero-filter {
+    padding: 15px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 14px;
+  }
+}
+
+/* Media Query for screens between 768px and 480px (small tablets and below) */
+@media screen and (max-width: 768px) {
+  .hero-filter {
+    padding: 12px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 12px;
+  }
+
+  .hero-filter button {
+    font-size: 0.95rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 8px 10px;
+  }
+}
+
+/* Media Query for screens between 480px and 330px (small mobile screens) */
+@media screen and (max-width: 480px) and (min-width: 330px) {
+  .hero-filter {
+    padding: 10px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .hero-filter button {
+    font-size: 0.85rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+
+/* Media Query for screens below 330px (very small mobile screens) */
+@media screen and (max-width: 330px) {
+  .hero-filter {
+    padding: 8px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 6px 8px;
+  }
+
+  .hero-filter button {
+    font-size: 0.75rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 4px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+/* Media Query for screens between 1024px and 768px (tablets) */
+@media screen and (max-width: 1024px) {
+  .hero-filter {
+    padding: 15px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 14px;
+  }
+}
+
+/* Media Query for screens between 768px and 480px (small tablets and below) */
+@media screen and (max-width: 768px) {
+  .hero-filter {
+    padding: 12px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 12px;
+  }
+
+  .hero-filter button {
+    font-size: 0.95rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 8px 10px;
+  }
+}
+
+/* Media Query for screens between 480px and 330px (small mobile screens) */
+@media screen and (max-width: 480px) and (min-width: 330px) {
+  .hero-filter {
+    padding: 10px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .hero-filter button {
+    font-size: 0.85rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+
+/* Media Query for screens below 330px (very small mobile screens) */
+@media screen and (max-width: 330px) {
+  .hero-filter {
+    padding: 8px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 6px 8px;
+  }
+
+  .hero-filter button {
+    font-size: 0.75rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 4px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+/* Media Query for screens between 1024px and 768px (tablets) */
+@media screen and (max-width: 1024px) {
+  .hero-filter {
+    padding: 15px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 14px;
+  }
+}
+
+/* Media Query for screens between 768px and 480px (small tablets and below) */
+@media screen and (max-width: 768px) {
+  .hero-filter {
+    padding: 12px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 12px;
+  }
+
+  .hero-filter button {
+    font-size: 0.95rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 8px 10px;
+  }
+}
+
+/* Media Query for screens between 480px and 330px (small mobile screens) */
+@media screen and (max-width: 480px) and (min-width: 330px) {
+  .hero-filter {
+    padding: 10px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .hero-filter button {
+    font-size: 0.85rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+
+/* Media Query for screens below 330px (very small mobile screens) */
+@media screen and (max-width: 330px) {
+  .hero-filter {
+    padding: 8px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 6px 8px;
+  }
+
+  .hero-filter button {
+    font-size: 0.75rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 4px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+/* Media Query for screens between 1024px and 768px (tablets) */
+@media screen and (max-width: 1024px) {
+  .hero-filter {
+    padding: 15px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 14px;
+  }
+}
+
+/* Media Query for screens between 768px and 480px (small tablets and below) */
+@media screen and (max-width: 768px) {
+  .hero-filter {
+    padding: 12px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 10px 12px;
+  }
+
+  .hero-filter button {
+    font-size: 0.95rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 8px 10px;
+  }
+}
+
+/* Media Query for screens between 480px and 330px (small mobile screens) */
+@media screen and (max-width: 480px) and (min-width: 330px) {
+  .hero-filter {
+    padding: 10px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 8px 10px;
+  }
+
+  .hero-filter button {
+    font-size: 0.85rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 6px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
+
+/* Media Query for screens below 330px (very small mobile screens) */
+@media screen and (max-width: 330px) {
+  .hero-filter {
+    padding: 8px;
+  }
+
+  .hero-filter form {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-filter select,
+  .hero-filter button {
+    width: 100%;
+    padding: 6px 8px;
+  }
+
+  .hero-filter button {
+    font-size: 0.75rem;
+  }
+
+  .hero-filter .dropdown-menu {
+    margin-top: 4px;
+  }
+
+  .hero-filter .dropdown-item {
+    padding: 6px 8px;
+  }
+}
