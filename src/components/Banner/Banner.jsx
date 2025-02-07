@@ -1,34 +1,51 @@
-import { audio } from "framer-motion/client";
 import React from "react";
+import { useInView } from "react-intersection-observer";
+import Video from "./soboBanner.mp4";
 
 const Banner = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
     <section className="py-12">
-      <div className="container mx-auto px-4">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden md:flex md:items-center" >
-          {/* Image Section */}
-          <div className="md:w-1/2">
-            <img
-              className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
-              src="/banner.png" // Ensure banner.png is in the public folder
-              alt="Luxury Homes"
+      <div className="container mx-auto px-4 max-w-[1200px]">
+        <div
+          ref={ref}
+          className={`relative rounded-3xl overflow-hidden md:flex md:items-center transition-opacity duration-500 ${
+            inView ? "opacity-100" : "opacity-0"
+          } bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg shadow-black/30`}
+        >
+          {/* Video Section with Gradient Overlay */}
+          <div className="md:w-1/2 relative">
+            <video
+              className="w-full h-full object-cover"
+              src={Video}
+              autoPlay
+              loop
+              muted
+              playsInline
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
           </div>
 
           {/* Text Section */}
-          <div className="md:w-1/2 p-8">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              <span className="text-indigo-600">Discover Your Dream Home</span>
+          <div className="md:w-1/2 p-8 text-white">
+            <h3 className="text-3xl font-bold mb-4">
+              Find Your Dream Property Today!
             </h3>
-            <p className="text-gray-600 mb-6">
-              Find premium properties in South Bombay's most iconic neighborhoods, including Marine Drive, Worli, and Malabar Hill. Explore luxurious residences tailored to your lifestyle.
+            <p className="mb-6 font-medium text-lg">
+              Helping You at Every Step. Explore properties with trust,
+              innovation, and expertise. We make it easy for you to make smart
+              choices and reach your goals.
             </p>
             <a
-              href="#"
-              className="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white text-sm font-medium rounded-lg shadow hover:bg-indigo-500 transition-colors duration-300"
+              href="/properties"
+              className="inline-flex items-center justify-center px-6 py-3 bg-white/20 text-white text-md font-medium rounded-full shadow-md backdrop-blur-lg hover:bg-white/30 transition-all duration-300"
               aria-label="Explore Listings"
             >
-              Explore Listings
+              Explore Properties
               <svg
                 className="w-5 h-5 ml-3 mt-2.5 flex-shrink-0"
                 xmlns="http://www.w3.org/2000/svg"

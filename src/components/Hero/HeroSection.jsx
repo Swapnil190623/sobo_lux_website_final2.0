@@ -84,7 +84,7 @@ export default function HeroSection() {
                     </span>
                     <div></div>
 
-                    <span className="text-transparent bg-clip-text text-5xl bg-gradient-to-r to-indigo-600 from-violet-200 ">
+                    <span className="text-transparent bg-clip-text text-5xl bg-gradient-to-r from-[#FFD586] via-[#FFC04D] to-[#FFAA00] ">
                       Sobo Luxe
                     </span>
                   </motion.h1>
@@ -116,14 +116,14 @@ export default function HeroSection() {
                     <input
                       type="search"
                       id="search-dropdown"
-                      className="block p-2.5 w-full font-medium z-20 text-md text-gray-900 bg-gray-100 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                      className="block p-2.5 w-full font-medium z-20 text-md text-gray-900 bg-gray-100 rounded-lg border border-gray-300"
                       placeholder="Search by location , Explore Mumbai Properties"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button
                       type="submit"
-                      className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#4F46E5] rounded-e-lg border border-blue-700 hover:bg-indigo-500 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                      className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#000000] rounded-e-lg border border-blue-700 hover:bg-gray-700 focus:ring-4 focus:outline-none "
                     >
                       <svg
                         className="w-4 h-4"
@@ -147,7 +147,7 @@ export default function HeroSection() {
               </form>
 
               {/* Will Deside , is we need this or not */}
-              
+
               {/* Conditionally render HeroFilter */}
               {/*{!isSmallScreen && (
                 <div className="mt-6">

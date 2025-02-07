@@ -73,8 +73,6 @@ function Home() {
         )}
       </section>
 
-      <Content />
-      <Banner />
 
       {/* Featured Projects will be displayd Here . this will display the projects ,  passing projectsData2 data here */}
       <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
@@ -123,7 +121,13 @@ function Home() {
         )}
       </section>
 
-      <Banner2 />
+     
+     
+    <Content/>
+
+      <Banner />
+
+      {/* <Banner2 /> */}
       <br />
 
       <hr />

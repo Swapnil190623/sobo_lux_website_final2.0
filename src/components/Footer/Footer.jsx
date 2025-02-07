@@ -1,142 +1,250 @@
-// src/components/Footer.js
+// animated footer working Properly .
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png'; // Adjust the path as necessary
+import React from "react";
+import { NavLink } from "react-router-dom";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaPhoneAlt, // Mobile Phone Icon
+  FaWhatsapp, // WhatsApp Icon
+} from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import "./Footer.css";
+import logo from "../../assets/logo.png";
 
-function Footer() {
-    return (
-        <footer className=" bg-black text-gray-800 dark:text-gray-200">
-            <div className="container mx-auto px-4 py-10">
-                <div className="flex flex-col md:flex-row justify-between">
-                    {/* Logo and Branding */}
-                    <div className="mb-6 md:mb-0">
-                        <Link to="/" className="flex items-center">
-                            <img src={logo} alt="Company Logo" className="h-10 mr-3" />
-                        </Link>
-                        <p className="mt-2 text-sm">
-                            We provide the best luxury real estate services in South Mumbai.
-                        </p>
-                    </div>
+const Footer = () => {
+  // Setting up the observer hooks
+  const { ref: leftRef, inView: leftInView } = useInView({
+    triggerOnce: true, // Trigger animation once when in view
+    threshold: 0.2, // Start animation when 20% of the section is in view
+  });
 
-                    {/* Navigation Links */}
-                    <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
-                        {/* Main Links */}
-                        <div>
-                            <h3 className="text-sm font-semibold uppercase mb-4">Navigation</h3>
-                            <ul className="space-y-2">
-                                <li>
-                                    <Link to="/" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        Home
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/properties" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        Properties
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/about" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        About Us
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/contact" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        Contact Us
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+  const { ref: middleRef, inView: middleInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-                        {/* Legal Links */}
-                        <div>
-                            <h3 className="text-sm font-semibold uppercase mb-4">Legal</h3>
-                            <ul className="space-y-2">
-                                <li>
-                                    <Link to="/privacy-policy" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        Privacy Policy
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/legal" className="text-sm hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        Disclaimer
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+  const { ref: rightRef, inView: rightInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-                        {/* Social Media Links */}
-                        <div>
-                            <h3 className="text-sm font-semibold uppercase mb-4">Follow Us</h3>
-                            <ul className="flex space-x-4">
-                                <li>
-                                    <a href="#" aria-label="Facebook" className="text-gray-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="w-5 h-5">
-                                            <path d="M32 16c0-8.839-7.167-16-16-16S0 7.161 0 16c0 7.991 5.824 14.613 13.438 15.854V21.71h-4.047v-5.71h4.047v-4.198c0-4.007 2.418-6.191 5.976-6.191 1.73 0 3.545.308 3.545.308v3.896h-2.021c-1.966 0-2.582 1.22-2.582 2.48v2.979h4.388l-.702 5.71h-3.724v10.144C26.176 30.613 32 23.991 32 16z"></path>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" aria-label="Twitter" className="text-gray-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                                            <path d="M23.954 4.569a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.691 8.094 4.066 6.13 1.64 3.161a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.061a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.937 4.937 0 004.604 3.417 9.868 9.868 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63a9.936 9.936 0 002.46-2.548l-.047-.02z"></path>
-                                        </svg>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" aria-label="Instagram" className="text-gray-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" className="w-5 h-5">
-                                            <path d="M16 2.248c3.174 0 3.548.012 4.823.07 1.206.058 1.872.247 2.304.414a4.612 4.612 0 011.668.992 4.612 4.612 0 01.992 1.668c.167.432.356 1.098.414 2.304.058 1.275.07 1.649.07 4.823s-.012 3.548-.07 4.823c-.058 1.206-.247 1.872-.414 2.304a4.612 4.612 0 01-.992 1.668 4.612 4.612 0 01-1.668.992c-.432.167-1.098.356-2.304.414-1.275.058-1.649.07-4.823.07s-3.548-.012-4.823-.07c-1.206-.058-1.872-.247-2.304-.414a4.612 4.612 0 01-1.668-.992 4.612 4.612 0 01-.992-1.668c-.167-.432-.356-1.098-.414-2.304C2.26 19.548 2.248 19.174 2.248 16s.012-3.548.07-4.823c.058-1.206.247-1.872.414-2.304a4.612 4.612 0 01.992-1.668 4.612 4.612 0 011.668-.992c.432-.167 1.098-.356 2.304-.414C12.452 2.26 12.826 2.248 16 2.248zm0-2.248C12.955 0 12.631.013 11.39.072 10.172.131 9.259.34 8.455.698a6.621 6.621 0 00-2.4 1.562A6.621 6.621 0 005.393 4.82c-.358.804-.567 1.717-.626 2.935C4.013 9.369 4 9.693 4 12s.013 2.631.072 3.872c.059 1.218.268 2.131.626 2.935a6.621 6.621 0 001.562 2.4 6.621 6.621 0 002.4 1.562c.804.358 1.717.567 2.935.626 1.241.059 1.565.072 3.872.072s2.631-.013 3.872-.072c1.218-.059 2.131-.268 2.935-.626a6.621 6.621 0 002.4-1.562 6.621 6.621 0 001.562-2.4c.358-.804.567-1.717.626-2.935.059-1.241.072-1.565.072-3.872s-.013-2.631-.072-3.872c-.059-1.218-.268-2.131-.626-2.935a6.621 6.621 0 00-1.562-2.4 6.621 6.621 0 00-2.4-1.562c-.804-.358-1.717-.567-2.935-.626C18.631.013 18.307 0 16 0zM16 7.787c-4.541 0-8.213 3.677-8.213 8.213 0 4.541 3.677 8.213 8.213 8.213 4.541 0 8.213-3.677 8.213-8.213 0-4.541-3.677-8.213-8.213-8.213zM16 21.333c-2.948 0-5.333-2.385-5.333-5.333s2.385-5.333 5.333-5.333c2.948 0 5.333 2.385 5.333 5.333s-2.385 5.333-5.333 5.333zM26.464 7.459c0 1.063-0.865 1.921-1.923 1.921-1.063 0-1.921-0.859-1.921-1.921 0-1.057 0.864-1.917 1.921-1.917s1.923 0.86 1.923 1.917z"></path>
-                                        </svg>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+  const { ref: disclaimerRef, inView: disclaimerInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-                {/* Disclaimer */}
-                <section className="mt-12">
-                    <h2 className="text-2xl font-semibold mb-4">Disclaimer</h2>
-                    <p className="text-base leading-relaxed text-white-700">
-                        The information provided on this website is for general informational purposes only.
-                        While we strive to ensure the accuracy, reliability, and completeness of the content,
-                        we make no guarantees or warranties of any kind, express or implied, about the
-                        accuracy, suitability, or availability of the information, properties, or services
-                        listed.
-                    </p>
-                    <p className="text-base leading-relaxed text-white-700 mt-4">
-                        All property descriptions, prices, and availability are subject to change without
-                        notice. Images, videos, and other media are for illustrative purposes only and may
-                        not represent the exact property details. Clients are encouraged to verify all
-                        property information through independent due diligence before entering into any
-                        agreement.
-                    </p>
-                    <p className="text-base leading-relaxed text-white-700 mt-4">
-                        We are not liable for any direct, indirect, incidental, or consequential damages
-                        resulting from the use of or inability to use this website or its contents.
-                    </p>
-                    <p className="text-base leading-relaxed text-white-700 mt-4">
-                        This website may contain links to third-party websites, which are provided solely
-                        for your convenience. We do not endorse or take responsibility for the content,
-                        policies, or practices of these websites.
-                    </p>
-                    <p className="text-base leading-relaxed text-white-700 mt-4">
-                        By using this website, you agree to our terms and acknowledge that all transactions
-                        and agreements will be governed by applicable laws and regulations.
-                    </p>
-                </section>
+  const { ref: privacyPolicyRef, inView: privacyPolicyInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-                {/* Divider */}
-                <div className="border-t border-gray-200 dark:border-gray-700 mt-8"></div>
+  const { ref: bottomRef, inView: bottomInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
-                {/* Footer Bottom */}
-                <div className="mt-8 text-sm text-center text-gray-500 dark:text-gray-400">
-                    © {new Date().getFullYear()} Brand Name. All rights reserved.
-                </div>
-            </div>
-        </footer>
-    );
-}
+  return (
+    <footer className="footer">
+      <div className="footer-container innerWidth paddings">
+        {/* Left Column */}
+        <motion.div
+          ref={leftRef}
+          className="footer-column"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: leftInView ? 1 : 0, x: leftInView ? 0 : -50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <img src={logo} alt="Reflex Logo" className="footer-logo" />
+          <p className="footer-contact mt-4">
+            <strong>Head Office</strong>
+            <br />
+            Suite 301, Turf View,
+            <br />
+            63, Dadarkar Compound,
+            <br />
+            Opp. Tardeo Rd, Tardeo,
+            <br />
+            Mumbai, Maharashtra 400034
+            <br />
+            Tel: 022-23530606 / 022-23537474
+            <br />
+            Email:{" "}
+            <a href="mailto:reflexrealty.mumbai@gmail.com?subject=Inquiry&body=Hello, I would like more information about your Properties & Services .">
+              reflexrealty.mumbai@gmail.com
+            </a>
+          </p>
+        </motion.div>
+
+        {/* Middle Column */}
+        <motion.div
+          ref={middleRef}
+          className="footer-column"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: middleInView ? 1 : 0, x: middleInView ? 0 : 50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3>Quick Links</h3>
+          <ul className="footer-links">
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/services">Services</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about-us">About Us</NavLink>
+            </li>
+            <li>
+              <NavLink to="/properties">Projects</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact-us">Contact</NavLink>
+            </li>
+          </ul>
+        </motion.div>
+
+        {/* Right Column */}
+        <motion.div
+          ref={rightRef}
+          className="footer-column"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: rightInView ? 1 : 0, x: rightInView ? 0 : -50 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3>Contact Us</h3>
+          <p className="footer-contact">
+            <strong>Address</strong>
+            <br />
+            Suite 301, Turf View,
+            <br />
+            63, Dadarkar Compound,
+            <br />
+            Opp. Tardeo Rd, Tardeo,
+            <br />
+            Mumbai, Maharashtra 400034
+            <br />
+            Email:{" "}
+            <a href="mailto:reflexrealty.mumbai@gmail.com?subject=Inquiry&body=Hello, I would like more information about your Properties & Services .">
+              reflexrealty.mumbai@gmail.com
+            </a>
+          </p>
+
+          {/* Social Media Icons */}
+          <motion.div
+            className="footer-social-media"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: rightInView ? 1 : 0, y: rightInView ? 0 : 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <a
+              href="https://www.facebook.com/reflexrealty/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://in.linkedin.com/company/reflex-realty-&-financial-consultants-pvt-ltd-"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://www.instagram.com/reflex_realty/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="tel:+919224448861"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaPhoneAlt />
+            </a>
+            <a
+              href="https://wa.me/919224448861"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp />
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Disclaimer and Privacy Policy Section */}
+      <motion.div
+        ref={disclaimerRef}
+        className="footer-disclaimer-section"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: disclaimerInView ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <motion.div
+          className="footer-disclaimer"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{
+            opacity: disclaimerInView ? 1 : 0,
+            x: disclaimerInView ? 0 : -50,
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3>Disclaimer</h3>
+          <p>
+            All plans, designs, visuals, images, and specifications are for
+            representation only and subject to necessary approvals. Prospective
+            buyers should verify details independently before making any
+            decisions.
+          </p>
+        </motion.div>
+        <motion.div
+          className="footer-privacy-policy"
+          ref={privacyPolicyRef}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{
+            opacity: privacyPolicyInView ? 1 : 0,
+            x: privacyPolicyInView ? 0 : 50,
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3>Privacy Policy</h3>
+          <p>
+            We collect your name and phone number when you register or fill out
+            a form on our site. This information helps us understand your
+            preferences and personalize your experience. Your data is used
+            solely for the stated purpose and handled responsibly.
+          </p>
+        </motion.div>
+      </motion.div>
+
+      {/* Bottom Section */}
+      <motion.div
+        ref={bottomRef}
+        className="footer-bottom"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: bottomInView ? 1 : 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <p>© {new Date().getFullYear()} Reflex Realty. All rights reserved.</p>
+      </motion.div>
+    </footer>
+  );
+};
 
 export default Footer;
+
+//new footer with proper aligbment ..

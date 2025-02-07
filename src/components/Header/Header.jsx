@@ -145,7 +145,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black text-white font-semibold shadow-md tracking-wide relative z-50">
+    <header className="bg-black text-white font-semibold shadow-md tracking-wide relative z-50 ">
       <motion.div
         className="flex flex-wrap items-center justify-between gap-4 px-4 md:px-10 py-3 sm:py-4 min-h-[60px] sm:min-h-[70px] relative"
         initial={{ opacity: 0 }}
@@ -185,13 +185,13 @@ const Header = () => {
               >
                 <motion.button
                   onClick={() => handleNavigation(item.route)}
-                  className="text-gray-300 block font-semibold text-base sm:text-lg transition-all duration-300 ease-in-out relative"
+                  className="text-gray-300 block tracking-wider font-semibold text-base sm:text-lg transition-all duration-300 ease-in-out relative"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
                   <span className="z-10">{item.name}</span>
                 </motion.button>
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300 transform transition-all duration-300 ease-in-out group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#FFD586] to-[#FFCC33] transform transition-all duration-300 ease-in-out group-hover:w-full" />
               </motion.li>
             ))}
           </ul>
@@ -208,7 +208,7 @@ const Header = () => {
               >
                 <FontAwesomeIcon
                   icon={faWhatsapp}
-                  className="w-5 h-5 sm:w-6 sm:h-6"
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-white"
                 />
               </motion.a>
             </div>

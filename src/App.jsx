@@ -9,6 +9,8 @@ import ContactUs from "./components/ContactUs/ContactUs";
 
 import Data from "./data/Data";
 import AboutUs from "./pages/AboutUs/AboutUs.jsx";
+import ServicesSection from "./components/ServicesSection/ServicesSection.jsx"
+import Services from "./pages/Services/Services.jsx";
 
 import ProjectsPage from "./pages/Projects/ProjectsPage";
 import ProjectDetailPage from "./pages/Projects/ProjectDetailPage";
@@ -29,8 +31,11 @@ function App() {
             />
           }
         />
-        <Route path="/about" element={<AboutUs />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
+
+
 
       <Footer />
     </Router>
