@@ -24,7 +24,16 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<ProjectsPage />} />
+        <Route
+          path="/projects"
+          element={
+            <>
+              {" "}
+              <ScrollToTop />
+              <ProjectsPage />
+            </>
+          }
+        />
         <Route path="/contact" element={<ContactUs />} />
         <Route
           path="/project/:id"
@@ -40,7 +49,13 @@ function App() {
 
         <Route
           path="/property/:id"
-          element={<PropertyDetailPage properties={Data.PropertyData2} />}
+          element={
+            <>
+              {" "}
+              <ScrollToTop />{" "}
+              <PropertyDetailPage properties={Data.PropertyData2} />{" "}
+            </>
+          }
         />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />

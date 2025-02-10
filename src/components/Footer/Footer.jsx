@@ -53,13 +53,13 @@ const Footer = () => {
         {/* Left Column */}
         <motion.div
           ref={leftRef}
-          className="footer-column"
+          className="footer-column "
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: leftInView ? 1 : 0, x: leftInView ? 0 : -50 }}
           transition={{ duration: 0.5 }}
         >
           <img src={logo} alt="Reflex Logo" className="footer-logo" />
-          <p className="footer-contact mt-4">
+          {/* <p className="footer-contact mt-4">
             <strong>Head Office</strong>
             <br />
             Suite 301, Turf View,
@@ -76,7 +76,7 @@ const Footer = () => {
             <a href="mailto:reflexrealty.mumbai@gmail.com?subject=Inquiry&body=Hello, I would like more information about your Properties & Services .">
               reflexrealty.mumbai@gmail.com
             </a>
-          </p>
+          </p> */}
         </motion.div>
 
         {/* Middle Column */}
@@ -88,7 +88,7 @@ const Footer = () => {
           transition={{ duration: 0.5 }}
         >
           <h3>Quick Links</h3>
-          <ul className="footer-links">
+          <ul className="footer-links ">
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
@@ -247,4 +247,6 @@ const Footer = () => {
 
 export default Footer;
 
-//new footer with proper aligbment ..
+// //new footer with proper aligbment ..
+
+

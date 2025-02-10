@@ -96,7 +96,7 @@ const DisplayLocationCard = ({
   });
 
   return (
-    <Link to={`/properties?location=${locationQuery}`}>
+    <Link to={`/projects?location=${locationQuery}`}>
       <motion.article
         ref={ref}
         className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-4 pb-8 pt-40 w-full mx-auto 

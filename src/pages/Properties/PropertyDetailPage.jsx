@@ -444,7 +444,7 @@ const PropertyDetailPage = ({ properties = [] }) => {
     >
       {/* Glassmorphism Container (Darker & More Transparent) */}
       <motion.div
-        className="relative bg-black/30 backdrop-blur-2xl shadow-lg rounded-3xl p-10 border border-white/10"
+        className="relative bg-white/10 backdrop-blur-2xl shadow-lg rounded-3xl p-10 border border-white/10"
         variants={fadeInVariants}
         initial="initial"
         animate="animate"
