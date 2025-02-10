@@ -9,11 +9,14 @@ import ContactUs from "./components/ContactUs/ContactUs";
 
 import Data from "./data/Data";
 import AboutUs from "./pages/AboutUs/AboutUs.jsx";
-import ServicesSection from "./components/ServicesSection/ServicesSection.jsx"
+import ServicesSection from "./components/ServicesSection/ServicesSection.jsx";
 import Services from "./pages/Services/Services.jsx";
 
 import ProjectsPage from "./pages/Projects/ProjectsPage";
 import ProjectDetailPage from "./pages/Projects/ProjectDetailPage";
+import PropertyDetailPage from "./pages/Properties/PropertyDetailPage.jsx";
+
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
   return (
@@ -26,16 +29,22 @@ function App() {
         <Route
           path="/project/:id"
           element={
-            <ProjectDetailPage
-              properties={[...Data.ProjectData1, ...Data.ReflexProjectData]}
-            />
+            <>
+              <ScrollToTop />
+              <ProjectDetailPage
+                projects={[...Data.ProjectData1, ...Data.ReflexProjectData]}
+              />
+            </>
           }
+        />
+
+        <Route
+          path="/property/:id"
+          element={<PropertyDetailPage properties={Data.PropertyData2} />}
         />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
       </Routes>
-
-
 
       <Footer />
     </Router>

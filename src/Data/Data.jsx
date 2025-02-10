@@ -1,19 +1,19 @@
 const DisplayCardData1 = [
   {
     image: "https://i.ibb.co/n6jnG0W/image.png",
-    title: "Colaba",
-  },
-  {
-    image: "https://i.ibb.co/dk9MLkj/image.png",
-    title: "Marine Drive",
-  },
-  {
-    image: "https://i.ibb.co/YDK7DWG/image.png",
     title: "Malabar Hill",
   },
   {
+    image: "https://i.ibb.co/dk9MLkj/image.png",
+    title: "Carmichael Road",
+  },
+  {
+    image: "https://i.ibb.co/YDK7DWG/image.png",
+    title: "Lower Parel",
+  },
+  {
     image: "https://i.ibb.co/wgqrLkz/image.png",
-    title: "Nariman Point",
+    title: "Prabhadevi",
   },
   {
     image: "https://i.ibb.co/JQdWjc1/image.png",
