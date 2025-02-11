@@ -39,13 +39,13 @@ const ProjectCard = ({ property }) => {
   };
 
   return (
-    <div className="max-w-md w-full py-6 px-3">
+    <div className="max-w-md w-[350px] py-6 px-3">
       <div
         className="relative backdrop-blur-xl bg-white/20 border border-white/20 shadow-lg rounded-2xl overflow-hidden cursor-pointer transition-transform duration-300 ease-in-out hover:scale-95"
         onClick={handleViewDetails}
       >
         <div
-          className="relative bg-cover bg-center h-60 p-4 w-80 rounded-sm"
+          className="relative bg-cover bg-center h-60 p-4 w-full rounded-sm"
           style={{
             backgroundImage: `url(${property.image || defaultImage})`,
             backgroundSize: "cover",
