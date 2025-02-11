@@ -203,7 +203,7 @@ const ProjectCard = ({ property }) => {
             {property.price || "Price On Request"}
           </p>
           <p className="text-sm font-normal text-gray-300">
-            {property.address || defaultValue}
+            {property.location || defaultValue}
           </p>
         </div>
 
