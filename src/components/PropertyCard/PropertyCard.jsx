@@ -228,7 +228,7 @@ const PropertyCard = ({ property }) => {
           {property.location || defaultValue}
         </div>
         <div className="absolute top-3 right-3 bg-white text-[#000000] text-sm px-2 py-1 rounded-full font-bold shadow-sm">
-          {property.propertyType || defaultValue}
+          {property.propertyType.toUpperCase() || defaultValue}
         </div>
       </div>
 
