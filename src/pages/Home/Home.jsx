@@ -120,14 +120,12 @@ function Home() {
           </div>
         )}
       </section>
-
-
-      
+{/* 
       {/* All Properties Are displayed here ... */}
-      <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
+      {/* <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
           <h2 className="text-3xl font-bold text-[#ffd586]">
-             Discover Properties With Sobo Luxe
+            Discover Properties With Sobo Luxe
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
             Find your perfect property from our wide range of projects.
@@ -144,7 +142,47 @@ function Home() {
             No properties available Here .
           </div>
         )}
-      </section>
+      </section> */} 
+
+
+     {/* All Properties Are displayed here ... */}
+<section className="p-6" style={{ maxWidth: "1200px", margin: "auto" }}>
+  <div className="text-center mb-6">
+    <h2 className="text-3xl font-bold text-[#ffd586]">
+      Discover Properties With Sobo Luxe
+    </h2>
+    <p className="text-gray-400 text-lg font-semibold">
+      Find your perfect property from our wide range of projects.
+    </p>
+  </div>
+
+  {Data.PropertyData2 && Data.PropertyData2.length > 0 ? (
+    <ScrollableRow scrollAmount={300}>
+      {Data.PropertyData2
+        .slice() // Create a copy to avoid mutating original data
+        .sort((a, b) => {
+          const getPriceValue = (price) => {
+            if (!price) return 0;
+            const num = price.replace(/₹|,/g, "").trim().toLowerCase();
+            if (num.includes("cr")) return parseFloat(num) * 10000000; // Convert Cr to numerical value
+            if (num.includes("lakh")) return parseFloat(num) * 100000; // Convert Lakh to numerical value
+            return parseFloat(num); // If it's already a number
+          };
+
+          return getPriceValue(b.price) - getPriceValue(a.price); // Sort in descending order
+        })
+        .map((ele, index) => (
+          <PropertyCard key={index} property={ele} />
+        ))}
+    </ScrollableRow>
+  ) : (
+    <div className="text-center text-gray-500">
+      No properties available here.
+    </div>
+  )}
+</section>
+
+
 
       <Content />
 
