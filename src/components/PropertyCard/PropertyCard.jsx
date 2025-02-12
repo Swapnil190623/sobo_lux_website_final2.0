@@ -116,10 +116,10 @@ const PropertyCard = ({ property }) => {
         {/* Actions */}
         <div className="flex items-center gap-2 px-3 mt-2">
           <button
-            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black hover:text-white transition-colors duration-200"
+            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black font-semibold hover:text-white transition-colors duration-200"
             onClick={(e) => handleEnquire(e, property)}
           >
-            Enquire
+            Let's Connect
           </button>
           <button
             className="flex items-center justify-center bg-gray-200 text-black py-1.5 px-2 rounded-xl transition-colors duration-200"

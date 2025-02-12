@@ -80,7 +80,7 @@ export default function HeroSection() {
                     // className="ext-balance tracking-normal  font-semibold text-white t"
                   >
                     <span className="text-balance tracking-normal  text-3xl font-semibold text-white">
-                      Experience The Ultimate Luxury
+                    South Mumbai's Finest Residences
                     </span>
                     <div></div>
 

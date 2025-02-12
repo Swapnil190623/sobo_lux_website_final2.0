@@ -232,13 +232,13 @@ const ProjectCard = ({ property }) => {
 
         <div className="flex gap-4 p-3 border-t border-white/20 text-center">
           <button
-            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black hover:text-white transition-colors duration-200"
+            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black font-semibold hover:text-white transition-colors duration-200"
             onClick={(e) => {
               e.stopPropagation();
               handleEnquire(e);
             }}
           >
-            Know More
+            Let's Connect
           </button>
 
           <button

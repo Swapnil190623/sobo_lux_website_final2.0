@@ -36,9 +36,7 @@ const Banner = () => {
               Find Your Dream Property Today!
             </h3>
             <p className="mb-6 font-medium text-lg">
-              Helping You at Every Step. Explore properties with trust,
-              innovation, and expertise. We make it easy for you to make smart
-              choices and reach your goals.
+            Experience Luxury Living – Trusted Guidance, Exclusive Properties, Smart Choices!
             </p>
             <a
               href="/properties"
