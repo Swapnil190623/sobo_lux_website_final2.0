@@ -113,11 +113,19 @@ export default function HeroSection() {
               >
                 <div className="flex">
                   <div className="relative w-full">
-                    <input
+                    {/* <input
                       type="search"
                       id="search-dropdown"
                       className="block p-2.5 w-full font-medium z-20 text-md text-gray-900 bg-gray-100 rounded-lg border border-gray-300"
                       placeholder="Search by location , Explore Mumbai Properties"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    /> */}
+                    <input
+                      type="search"
+                      id="search-dropdown"
+                      className="block p-2.5 w-full font-medium text-md text-white bg-white/10 backdrop-blur-lg border border-white/20 rounded-lg placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white transition"
+                      placeholder="Search by location, Explore Mumbai Properties"
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />

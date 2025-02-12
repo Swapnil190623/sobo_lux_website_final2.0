@@ -96,13 +96,13 @@ const Footer = () => {
               <NavLink to="/services">Services</NavLink>
             </li>
             <li>
-              <NavLink to="/about-us">About Us</NavLink>
+              <NavLink to="/aboutus">About Us</NavLink>
             </li>
             <li>
-              <NavLink to="/properties">Projects</NavLink>
+              <NavLink to="/projects">Projects</NavLink>
             </li>
             <li>
-              <NavLink to="/contact-us">Contact</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </ul>
         </motion.div>
@@ -248,5 +248,3 @@ const Footer = () => {
 export default Footer;
 
 // //new footer with proper aligbment ..
-
-

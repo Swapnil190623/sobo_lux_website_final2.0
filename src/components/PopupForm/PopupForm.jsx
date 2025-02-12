@@ -533,7 +533,7 @@ const PopupForm = ({ onClose, property }) => {
 
           <button
             type="submit"
-            className="w-full text-md bg-[#000000] text-[#ffd586] py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            className="w-full text-md bg-[#000000] text-[#ffd586] py-2 rounded-lg hover:bg-[#ffd586] hover:text-black transition duration-500 ease-in-out"
           >
             Submit
           </button>
