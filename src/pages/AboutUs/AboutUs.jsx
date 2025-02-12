@@ -2,6 +2,11 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Testimonials from "../../components/Testimonials/Testimonials.jsx"
+
+
+
+
 
 function AboutUs() {
   return (
@@ -113,40 +118,13 @@ function AboutUs() {
 
       {/* Meet the Team */}
       <section className="py-24 px-6 max-w-7xl mx-auto text-center">
-        <motion.h2
-          className="text-5xl font-bold text-gold font-playfair"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          Meet Our Experts
-        </motion.h2>
-        <p className="text-lg text-gray-400 mt-4 font-inter max-w-3xl mx-auto">
-          Our dedicated team of professionals curates, negotiates, and delivers
-          excellence in real estate like no other.
-        </p>
+       
 
         {/* Team Members */}
-        <div className="grid md:grid-cols-3 gap-12 mt-12">
-          {["Alex Carter", "Sophia Lane", "Daniel Royce"].map((name, index) => (
-            <motion.div
-              key={index}
-              className="bg-white/10 backdrop-blur-xl p-6 rounded-xl shadow-lg"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: index * 0.3 }}
-            >
-              <img
-                src={`https://images.pexels.com/photos/12679992/pexels-photo-12679992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1${index}`}
-                className="rounded-full object-cover  w-24 h-24 mx-auto mb-4"
-                alt={name}
-              />
-              <h3 className="text-xl font-semibold text-white">{name}</h3>
-              <p className="text-gold font-inter">
-                Luxury Real Estate Specialist
-              </p>
-            </motion.div>
-          ))}
+
+        
+        <div className="bg-transparent">
+          <Testimonials/>
         </div>
       </section>
 
