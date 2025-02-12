@@ -39,7 +39,7 @@ const Banner = () => {
             Experience Luxury Living – Trusted Guidance, Exclusive Properties, Smart Choices!
             </p>
             <a
-              href="/properties"
+              href="/projects"
               className="inline-flex items-center justify-center px-6 py-3 bg-white/20 text-white text-md font-medium rounded-full shadow-md backdrop-blur-lg hover:bg-white/30 transition-all duration-300"
               aria-label="Explore Listings"
             >
