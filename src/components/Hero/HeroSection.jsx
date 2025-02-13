@@ -79,7 +79,7 @@ export default function HeroSection() {
                     transition={{ duration: 0.6 }}
                     // className="ext-balance tracking-normal  font-semibold text-white t"
                   >
-                    <span className="text-balance tracking-normal  text-3xl font-semibold text-white">
+                    <span className="text-balance tracking-normal  text-3xl  font-semibold text-white">
                     South Mumbai's Finest Residences
                     </span>
                     <div></div>
