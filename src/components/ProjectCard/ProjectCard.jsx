@@ -202,7 +202,7 @@ const ProjectCard = ({ property }) => {
           <p className="text-gray-200 font-semibold text-2xl">
             {property.price || "Price On Request"}
           </p>
-          <p className="text-sm font-normal text-gray-300">
+          <p className="text-md font-normal text-gray-300">
             {property.location || defaultValue}
           </p>
         </div>
@@ -224,7 +224,7 @@ const ProjectCard = ({ property }) => {
               alt="Map Pin"
               className="h-5 w-5 text-white/80"
             />
-            <p className="text-white font-bold text-sm">
+            <p className="text-white font-bold text-md">
               {property.area || defaultValue}
             </p>
           </div>
@@ -232,7 +232,7 @@ const ProjectCard = ({ property }) => {
 
         <div className="flex gap-4 p-3 border-t border-white/20 text-center">
           <button
-            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black font-semibold hover:text-white transition-colors duration-200"
+            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black font-bold hover:text-white transition-colors duration-200"
             onClick={(e) => {
               e.stopPropagation();
               handleEnquire(e);

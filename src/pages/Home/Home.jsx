@@ -79,7 +79,7 @@ function Home() {
       {/* Featured Projects will be displayd Here . this will display the projects ,  passing projectsData2 data here */}
       <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wide">
+          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider">
             Featured Luxury Homes
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
@@ -103,7 +103,7 @@ function Home() {
       {/* All Projects Are displayed here ... */}
       <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wide ">
+          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider ">
             Explore Sobo's Luxury Projects
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
@@ -150,7 +150,7 @@ function Home() {
      {/* All Properties Are displayed here ... */}
 <section className="p-6" style={{ maxWidth: "1200px", margin: "auto" }}>
   <div className="text-center mb-6">
-    <h2 className="text-3xl font-bold text-[#ffd586] tracking-wide ">
+    <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider ">
       Discover Properties With Sobo Luxe
     </h2>
     <p className="text-gray-400 text-lg font-semibold">

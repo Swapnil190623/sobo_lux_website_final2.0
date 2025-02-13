@@ -66,7 +66,7 @@ const PropertyCard = ({ property }) => {
             <p className="text-xl font-bold">
               {property.price || defaultValue}
             </p>
-            <p className="text-sm text-gray-300">
+            <p className="text-md text-gray-300">
               {property.location || defaultValue}
             </p>
             {property.isCommercial && (
@@ -82,7 +82,7 @@ const PropertyCard = ({ property }) => {
             <span className="font-medium">
               {property.isCommercial ? "Area" : "BHK"}
             </span>
-            <span className="text-white font-semibold text-sm">
+            <span className="text-white font-semibold text-md">
               {property.isCommercial
                 ? property.area || defaultValue
                 : property.bhk || defaultValue}
@@ -90,7 +90,7 @@ const PropertyCard = ({ property }) => {
           </div>
           <div className="flex items-center gap-2 justify-between">
             <span className="font-medium">Carpet Area</span>
-            <span className="text-white font-semibold text-sm">
+            <span className="text-white font-semibold text-md">
               {property.area || defaultValue}
             </span>
           </div>
@@ -116,7 +116,7 @@ const PropertyCard = ({ property }) => {
         {/* Actions */}
         <div className="flex items-center gap-2 px-3 mt-2">
           <button
-            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black font-semibold hover:text-white transition-colors duration-200"
+            className="flex-1 bg-[#ffd586] text-black py-2 rounded-xl hover:bg-black  font-bold hover:text-white transition-colors duration-200"
             onClick={(e) => handleEnquire(e, property)}
           >
             Let's Connect
