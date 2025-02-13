@@ -81,7 +81,6 @@
 // type 2 
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const propertyTypes = [
   {
@@ -126,31 +125,25 @@ const PropertyTypes = () => {
         {propertyTypes.map((property, index) => (
           <motion.div
             key={index}
-            className="relative w-full h-80 rounded-xl overflow-hidden perspective"
+            className="relative w-full h-96 rounded-xl overflow-hidden bg-cover bg-center group shadow-lg"
+            style={{ backgroundImage: `url(${property.image})` }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
           >
-            {/* Card Wrapper */}
-            <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group hover:rotate-y-180">
-              {/* Front Side */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 backdrop-blur-md border border-white/20 rounded-xl shadow-lg transition duration-500 group-hover:shadow-xl">
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="w-full h-40 object-cover rounded-t-xl"
-                />
-                <h3 className="text-xl font-semibold text-white mt-4">
-                  {property.title}
-                </h3>
-              </div>
+            {/* Soft Dark Overlay (keeps image visible) */}
+            <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/60" />
 
-              {/* Back Side */}
-              <div className="absolute inset-0 bg-black text-white rounded-xl flex items-center justify-center transform rotate-y-180 opacity-0 group-hover:opacity-100 group-hover:rotate-y-0 transition-opacity duration-700">
-                <p className="text-lg font-medium p-4 text-center">
-                  {property.description}
-                </p>
-              </div>
+            {/* Title (Visible by default) */}
+            <div className="absolute bottom-6 left-6 right-6 text-white transition-all duration-500 group-hover:opacity-0">
+              <h3 className="text-2xl font-semibold">{property.title}</h3>
+            </div>
+
+            {/* Hover Reveal - Description */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 p-6 text-center">
+              <p className="text-lg font-medium text-white">
+                {property.description}
+              </p>
             </div>
           </motion.div>
         ))}
