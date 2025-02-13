@@ -113,7 +113,7 @@ const PropertyTypes = () => {
     <section className="py-20 px-6 lg:px-16">
       {/* Section Title */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-white tracking-wide">
+        <h2 className="text-4xl font-bold text-[#ffd586] tracking-wide">
           Explore Our Luxury Properties
         </h2>
         <p className="text-gray-300 mt-2 text-lg">
