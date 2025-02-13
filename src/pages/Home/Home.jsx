@@ -14,6 +14,7 @@ import { motion } from "framer-motion";
 import Banner2 from "../../components/Banner/Banner2.jsx";
 import HeroSection from "../../components/Hero/HeroSection.jsx";
 import PropertyCard from "../../components/PropertyCard/PropertyCard.jsx";
+import PropertyTypes from "../../components/PropertyTypes/PropertyTypes.jsx";
 
 function Home() {
   return (
@@ -185,6 +186,8 @@ function Home() {
 
 
       <Content />
+
+      <PropertyTypes/>
 
       <Banner />
 
