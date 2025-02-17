@@ -1,5 +1,3 @@
-
-
 // import { motion } from "framer-motion";
 // import { Link } from "react-router-dom"; // Import Link
 
@@ -76,10 +74,7 @@
 
 // export default PropertyTypes;
 
-
-
-//animated 
-
+//animated
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -148,7 +143,11 @@ const PropertyTypes = () => {
                 style={{ backgroundImage: `url(${property.image})` }}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{ duration: 0.7, delay: index * 0.15, ease: "easeOut" }}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  ease: "easeOut",
+                }}
               >
                 {/* Soft Dark Overlay (keeps image visible) */}
                 <div className="absolute inset-0 bg-black/30 transition-all duration-500 group-hover:bg-black/60" />
