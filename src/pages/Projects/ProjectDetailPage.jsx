@@ -1,5 +1,3 @@
-
-
 // import React, { useState } from "react";
 // import { useParams, useNavigate } from "react-router-dom";
 // import { motion } from "framer-motion";
@@ -213,11 +211,6 @@
 
 // export default ProjectDetailPage;
 
-
-
-
-
-
 // glass effect , currently using ..
 
 import React, { useState } from "react";
@@ -258,7 +251,10 @@ const ProjectDetailPage = ({ projects = [] }) => {
 
   // Utility function for safely retrieving nested object properties
   const getNested = (obj, path, defaultValue = "Ask For Details") => {
-    return path.split(".").reduce((acc, part) => acc && acc[part], obj) || defaultValue;
+    return (
+      path.split(".").reduce((acc, part) => acc && acc[part], obj) ||
+      defaultValue
+    );
   };
 
   const agentName = getNested(project, "contactAgent.name", "Vidhi");
@@ -292,7 +288,9 @@ const ProjectDetailPage = ({ projects = [] }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-5xl font-bold leading-tight">{project.title || "Project Details"}</h1>
+        <h1 className="text-5xl font-bold leading-tight">
+          {project.title || "Project Details"}
+        </h1>
         <button
           className="px-6 py-3 bg-gray-900 text-white  rounded-lg hover:bg-opacity-80 transition duration-300"
           onClick={() => navigate("/")}
@@ -309,7 +307,10 @@ const ProjectDetailPage = ({ projects = [] }) => {
         transition={{ duration: 0.8 }}
       >
         <img
-          src={project.image || "https://i.ibb.co/MhfHdt6/sea-view-appartment-in-mumbai.png"}
+          src={
+            project.image ||
+            "https://i.ibb.co/MhfHdt6/sea-view-appartment-in-mumbai.png"
+          }
           alt={project.title || "Project Image"}
           className="w-full h-full object-cover"
           loading="lazy"
@@ -331,16 +332,35 @@ const ProjectDetailPage = ({ projects = [] }) => {
         <h2 className="text-3xl font-semibold mb-6">Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-300">
           <div className="text-xl space-y-4">
-            <p><strong>Price:</strong> {project.price || "Ask For Details"}</p>
-            <p><strong>Location:</strong> {project.location || "Ask For Details"}</p>
-            <p><strong>Type:</strong> {project.projectType || "Ask For Details"}</p>
-            <p><strong>Land Area:</strong> {project.area || "Ask For Details"}</p>
-            <p><strong>BHK:</strong> {project.bhk || "Ask For Details"}</p>
+            <p>
+              <strong>Price:</strong> {project.price || "Ask For Details"}
+            </p>
+            <p>
+              <strong>Location:</strong> {project.location || "Ask For Details"}
+            </p>
+            <p>
+              <strong>Type:</strong> {project.projectType || "Ask For Details"}
+            </p>
+            <p>
+              <strong>Land Area:</strong> {project.area || "Ask For Details"}
+            </p>
+            <p>
+              <strong>BHK:</strong> {project.bhk || "Ask For Details"}
+            </p>
           </div>
           <div className="text-xl space-y-4">
-            <p><strong>Possession:</strong> {project.possession || "Ask For Details"}</p>
-            <p><strong>Expected Closure:</strong> {project.expectedClosure || "Ask For Details"}</p>
-            <p><strong>Project Status:</strong> {project.projectStatus || "Ask For Details"}</p>
+            <p>
+              <strong>Possession:</strong>{" "}
+              {project.possession || "Ask For Details"}
+            </p>
+            <p>
+              <strong>Expected Closure:</strong>{" "}
+              {project.expectedClosure || "Ask For Details"}
+            </p>
+            <p>
+              <strong>Project Status:</strong>{" "}
+              {project.projectStatus || "Ask For Details"}
+            </p>
           </div>
         </div>
       </motion.div>
@@ -355,8 +375,12 @@ const ProjectDetailPage = ({ projects = [] }) => {
       >
         <h2 className="text-3xl font-semibold mb-6">Contact Agent</h2>
         <div className="text-lg">
-          <p><strong>Agent Name:</strong> {agentName}</p>
-          <p><strong>Phone:</strong> {agentPhone}</p>
+          <p>
+            <strong>Agent Name:</strong> {agentName}
+          </p>
+          <p>
+            <strong>Phone:</strong> {agentPhone}
+          </p>
         </div>
       </motion.div>
 
@@ -368,15 +392,23 @@ const ProjectDetailPage = ({ projects = [] }) => {
         animate={inView3 ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <button className="flex-1 py-4 bg-[#ffd586] text-black rounded-lg" onClick={() => setShowPopup(true)}>
+        <button
+          className="flex-1 py-4 text-xl font-bold bg-[#ffd586] hover:text-white hover:bg-black transition duration-200 text-black rounded-lg"
+          onClick={() => setShowPopup(true)}
+        >
           Enquire Now
         </button>
-        <button className="flex-1 py-4 bg-[#333] text-white rounded-lg" onClick={handleWhatsApp}>
+        <button
+          className="flex-1 py-4 text-xl bg-[#333] text-white rounded-lg"
+          onClick={handleWhatsApp}
+        >
           Contact via WhatsApp
         </button>
       </motion.div>
 
-      {showPopup && <PopupForm onClose={() => setShowPopup(false)} property={project} />}
+      {showPopup && (
+        <PopupForm onClose={() => setShowPopup(false)} property={project} />
+      )}
     </motion.div>
   );
 };

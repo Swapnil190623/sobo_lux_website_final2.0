@@ -2,7 +2,7 @@
 import "./Hero.css";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Video from "./Video.mp4";
+import Video from "./Reflex_Bg.mp4";
 import HeroFilter from "./HeroFilter.jsx";
 import { motion } from "framer-motion";
 import { InView } from "react-intersection-observer";

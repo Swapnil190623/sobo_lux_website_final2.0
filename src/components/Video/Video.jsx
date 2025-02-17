@@ -87,7 +87,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Video1 from "./BgVideo.mp4";
+import Video1 from "./Reflex_Bg.mp4";
 
 const Video = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
@@ -152,7 +152,7 @@ const Video = () => {
             transition={{ duration: 1 }}
             className="mt-4 text-lg sm:text-xl font-light text-gray-200 leading-relaxed"
           >
-            Discover Your Dream Luxury Home in South Mumbai 
+            Discover Your Dream Luxury Home in South Mumbai
           </motion.p>
         )}
 
