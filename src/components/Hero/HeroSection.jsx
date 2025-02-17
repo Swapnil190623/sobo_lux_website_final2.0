@@ -80,7 +80,7 @@ export default function HeroSection() {
                     // className="ext-balance tracking-normal  font-semibold text-white t"
                   >
                     <span className="text-balance tracking-normal  text-3xl  font-semibold text-white">
-                    South Mumbai's Finest Residences
+                    The Art of Exclusive Living Starts Here.
                     </span>
                     <div></div>
 
@@ -100,8 +100,7 @@ export default function HeroSection() {
                     className="mt-6 text-pretty text-lg font-medium text-gray-400 sm:text-xl"
                   >
                     {/* Elite homes, premium offices, and top investments in South Mumbai. */}
-                    Discover Mumbai's finest residential and commercial
-                    properties.
+                   South Mumbai's Finest Residances
                   </motion.p>
                 )}
               </InView>

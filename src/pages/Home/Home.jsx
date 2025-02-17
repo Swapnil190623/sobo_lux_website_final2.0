@@ -6,6 +6,7 @@ import DisplayLocationCard from "../../components/DisplayCard/DisplayLocationCar
 
 import Content from "../../components/Content/Content";
 import Banner from "../../components/Banner/Banner";
+import Video from "../../components/Video/Video.jsx"
 
 import ProjectCard from "../../components/ProjectCard/ProjectCard.jsx";
 
@@ -193,9 +194,11 @@ function Home() {
       <Banner />
 
       {/* <Banner2 /> */}
-      <br />
 
-      <hr />
+      <Video/>
+      
+
+      <br />
     </>
   );
 }
