@@ -1,5 +1,3 @@
-
-
 // import { motion } from "framer-motion";
 // import { useEffect, useState } from "react";
 // import Video1 from "./BgVideo.mp4";
@@ -87,10 +85,6 @@
 
 // export default Video;
 
-
-
-
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Video1 from "./BgVideo.mp4";
@@ -105,7 +99,7 @@ const Video = () => {
   return (
     <section className="relative w-full h-[90vh] flex rounded-3xl items-center justify-center ">
       {/* Softer Golden Glow Effect Behind Video */}
-      <div className="absolute inset-10 bg-white opacity-30 blur-2xl transition-all duration-1000"></div>
+      <div className="absolute inset-8 bg-white opacity-50 blur-2xl transition-all duration-1000"></div>
 
       {/* Video Container with Bigger Card Effect */}
       <motion.div
@@ -158,8 +152,7 @@ const Video = () => {
             transition={{ duration: 1 }}
             className="mt-4 text-lg sm:text-xl font-light text-gray-200 leading-relaxed"
           >
-            Discover elegance in every frame. Experience world-class homes built
-            for those who seek excellence.
+            Discover Your Dream Luxury Home in South Mumbai 
           </motion.p>
         )}
 
