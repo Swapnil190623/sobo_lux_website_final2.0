@@ -351,7 +351,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} Reflex Realty. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Sobo Luxe. All rights reserved.</p>
         <p className="footer-disclaimer">
           Disclaimer: The information provided on this website is for general
           informational purposes only and is not intended as legal or

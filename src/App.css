@@ -27,6 +27,12 @@ section {
   text-align: center;
 }
 
+::selection {
+  background-color: black; /* Change the background color to black */
+  color: white; /* Optional: Change text color to white for better contrast */
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
