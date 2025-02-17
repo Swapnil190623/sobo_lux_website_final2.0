@@ -521,12 +521,20 @@ const ProjectsPage = () => {
               className="p-3 bg-white/20 border border-white/30 backdrop-blur-lg rounded-lg text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all duration-500 text-sm sm:text-base"
             />
           </div>
-          <button
+          {/* <button
             className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-500 shadow-md transition-all duration-500 text-sm sm:text-base"
             onClick={() => setCurrentPage(1)}
           >
             Apply Filters
-          </button>
+          </button> */}
+
+<button
+  className="p-3 bg-white/30 backdrop-blur-lg text-white rounded-lg hover:bg-white/80 hover:text-black shadow-xl transition-all duration-500 text-sm sm:text-base"
+  onClick={() => setCurrentPage(1)}
+>
+  Apply Filters
+</button>
+
           <button
             className="p-3 bg-white/20 text-white border border-white/30 backdrop-blur-lg rounded-lg hover:bg-white/30 transition-all duration-500 text-sm sm:text-base"
             onClick={resetFilters}

@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Testimonials from "../../components/Testimonials/Testimonials.jsx"
+import Video from "../../components/Video/Video.jsx"
 
 
 
@@ -143,6 +144,8 @@ function AboutUs() {
         >
           Explore Listings
         </motion.button>
+
+        <Video/>
       </section>
     </div>
   );
