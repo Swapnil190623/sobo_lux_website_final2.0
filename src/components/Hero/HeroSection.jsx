@@ -130,7 +130,7 @@ export default function HeroSection() {
                     />
                     <button
                       type="submit"
-                      className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#000000] rounded-e-lg border border-blue-700 hover:bg-gray-700 focus:ring-4 focus:outline-none "
+                      className="absolute top-0 right-0 p-2.5 text-sm font-medium h-full text-white bg-[#000000] rounded-e-lg  hover:bg-gray-700 focus:ring-4 focus:outline-none "
                     >
                       <svg
                         className="w-4 h-4"

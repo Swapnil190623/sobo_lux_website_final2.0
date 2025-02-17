@@ -1,187 +1,128 @@
-/* General Footer Styling */
+/* Footer Styling */
 .footer {
-  background: linear-gradient(to right, black, #1a1a1a, black); /* Darker gradient */
-  color: #fff;
-  padding: 2rem 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers content horizontally */
-  justify-content: center; /* Centers content vertically if needed */
+  background-color: #1a1a1a; /* Dark background for luxury feel */
+  color: #d1d1d1; /* Light grey text */
+  padding: 4rem 2rem; /* Increased top/bottom padding for spacious feel */
+  font-family: "Georgia", serif; /* Luxury font for a refined look */
+  text-align: center; /* Center the bottom content */
 }
 
 .footer-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centers the columns */
-  max-width: 1200px; /* Limits the container width */
-  width: 100%;
-  padding: 0 20px;
-}
-
-.footer-column {
-  flex: 1 1 30%;
-  margin-bottom: 1.5rem;
-  text-align: left;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 3rem; /* Adding gap between the sections */
 }
 
 .footer-logo {
-  /* width: 150px;
-  margin-bottom: 1rem; */
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-  width: 300px; /* Increase the size */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%;
-  filter: brightness(90%);
+.footer-logo-img {
+  max-width: 400px; /* Slightly larger logo */
+  margin-bottom: 1rem;
+}
+
+.footer-nav {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem; /* Space between navigation links */
+}
+
+.footer-nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Spacing between links */
+  align-items: center;
+  text-align: center;
+}
+
+.footer-nav-links li a {
+  color: #ffd586; /* Gold color for text links */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-links li a:hover {
+  color: #d1d1d1; /* Lighter gold on hover */
 }
 
 .footer-contact {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-top: 1rem;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.footer-column h3 {
+.footer-address,
+.footer-email {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
-  
-}
-
-.footer-links {
-  list-style: none;
-  text-align: left;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.footer-links a:hover {
-  color: #ffd856;
-}
-
-.footer-website a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s;
-}
-
-.footer a:hover {
-  color: #ffd856; /* Update other footer links hover styles */
-}
-
-/* Social Media Icons Styling */
-.footer-social-media {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.footer-social-media a {
-  background-color: #333;
-  padding: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  color: black;
-  
-  font-size: 1.5rem;
-  transition: background-color 0.3s;
-}
-
-.footer-social-media a:hover {
-  background-color: #ffd856;
-  color: #1a1a1a;
-}
-
-.footer-social-media a:focus {
-  outline: none;
-}
-
-/* Added Icons Styling */
-.footer-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.footer-icons a {
-  background-color: #333;
-  padding: 10px;
-  border-radius: 50%;
-  display: inline-block;
-  color: white;
-  font-size: 1.5rem;
-  transition: background-color 0.3s;
-}
-
-.footer-icons a:hover {
-  background-color: black;
-}
-
-.footer-icons a:focus {
-  outline: none;
-}
-
-/* Disclaimer and Privacy Policy Section */
-.footer-disclaimer-section {
-  margin-top: 2rem;
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center; /* Centers disclaimer and privacy policy sections */
-}
-
-.footer-disclaimer,
-.footer-privacy-policy {
-  max-width: 1280px;
-  margin: 0 auto;
-}
-
-.footer-disclaimer h3,
-.footer-privacy-policy h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #ffff;
-}
-
-.footer-disclaimer p,
-.footer-privacy-policy p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin-bottom: 0;
-}
-
-/* Footer Bottom Section */
-.footer-bottom {
+  margin-bottom: 1.5rem;
   text-align: center;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 2rem;
-  font-size: 0.85rem;
-  width: 100%;
+  color: #d1d1d1;
 }
 
-/* Links Styling */
-.footer a {
-  color: #fff;
+.footer-email a {
+  color: #ffd586;
   text-decoration: none;
 }
 
-.footer a:hover {
-  color: #4f46e5;
+.footer-email a:hover {
+  color: #ffcc33;
+}
+
+.footer-social {
+  display: flex;
+  gap: 25px;
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+
+.footer-social a {
+  color: #ffd586;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #d1d1d1;
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #bbb;
+}
+
+.footer-bottom p {
+  margin-bottom: 10px;
+}
+
+.footer-disclaimer {
+  font-size: 0.9rem;
+  color: #888;
+  max-width: 80%;
+  margin: 0 auto;
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: 1rem;
+  line-height: 1.6;
 }
 
 /* Responsive Design */
@@ -189,25 +130,25 @@
   .footer-container {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
-  .footer-column {
-    flex: 1 1 100%;
-    margin-bottom: 1.5rem;
+  .footer-nav {
+    margin-top: 2rem;
+    gap: 2rem; /* Ensuring spacing is good on smaller screens */
   }
 
-  .footer-logo {
-    margin: 0 auto 1rem auto;
+  .footer-contact {
+    margin-top: 2rem;
+    align-items: center;
   }
 
-  .footer-disclaimer-section {
-    flex-direction: column;
-    text-align: left;
+  .footer-disclaimer {
+    margin-top: 2rem;
+    font-size: 0.90rem;
+    max-width: 90%;
   }
 
-  .footer-disclaimer,
-  .footer-privacy-policy {
-    flex: 1 1 100%;
+  .footer-social {
+    gap: 15px;
   }
 }

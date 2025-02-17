@@ -9,12 +9,12 @@
 
 /* index.css or global.css */
 html {
-  /* background-color: #F5F5F7; */
-  /* background-color: #1D1D1F; */
+  
+  
 
-  /* background: #0b090a; */
+  
 
-  background: linear-gradient(to right, #2f3137, #000102);
+  background: linear-gradient(to right, #212327, #000102);
 
   /* background: linear-gradient(to bottom, #111827, #000); */
 }

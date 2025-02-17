@@ -85,6 +85,10 @@
 
 // export default Video;
 
+
+
+// This is the new code , that we are using ..
+
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Video1 from "./Reflex_Bg.mp4";
@@ -163,9 +167,9 @@ const Video = () => {
             boxShadow: "0px 0px 25px rgba(255, 213, 134, 0.8)",
           }}
           whileTap={{ scale: 0.95 }}
-          className="relative mt-6 px-10 py-4 bg-[#ffd586] text-black font-semibold rounded-lg shadow-lg hover:bg-[#ffcc66] transition-all"
+          className="relative mt-6 px-10 py-4 bg-[#ffd586] text-black font-extrabold rounded-lg shadow-lg hover:bg-[#ffcc66] transition-all"
         >
-          Discover More
+          Explore More
         </motion.button>
       </motion.div>
     </section>

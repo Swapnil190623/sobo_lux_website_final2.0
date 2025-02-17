@@ -191,7 +191,7 @@ function Home() {
 
       <PropertyTypes/>
 
-      <Banner />
+      {/* <Banner /> */}
 
       {/* <Banner2 /> */}
 
