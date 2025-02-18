@@ -957,13 +957,13 @@ function ContactUs() {
         <p className="text-lg mt-4 font-inter">
           Reach out to us and let’s discuss how we can assist you.
         </p>
-        <motion.button
+        {/* <motion.button
           className="mt-8 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-lg hover:bg-opacity-80 transition-all duration-500"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
           Get in Touch
-        </motion.button>
+        </motion.button> */}
 
         {/* Snackbar for success/failure messages */}
         <Snackbar
