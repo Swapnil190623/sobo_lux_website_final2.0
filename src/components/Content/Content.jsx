@@ -3,10 +3,20 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-import Image1 from "./Luxury_Property.svg";
-import Image2 from "./Legacy.svg";
-import Image3 from "./Client.svg";
-import Image4 from "./EndToEnd.svg";
+// import Image1 from "./Luxury_Property.svg";
+// import Image2 from "./Legacy.svg";
+// import Image3 from "./Client.svg";
+// import Image4 from "./EndToEnd.svg";
+
+
+import Image1 from "../../assets/Exclusive_property.svg";
+import Image2 from "../../assets/buy_sell.svg";
+
+import Image3 from "../../assets/client_centric.svg";
+// import Image4 from "../../assets/investment.svg";
+// import Image5 from "../../assets/Markenting_Sobo.svg";
+import Image4 from "../../assets/Project_Management.svg";
+
 
 function Content() {
   // Ref for the section
