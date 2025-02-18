@@ -4,12 +4,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import Testimonials from "../../components/Testimonials/Testimonials.jsx"
 import Video from "../../components/Video/Video.jsx"
+import { useParams, useNavigate } from "react-router-dom";
+// import logo from "../../assets/logo.png";
+import Logo2 from "../../assets/Logo2.jpeg";
 
 
 
 
 
 function AboutUs() {
+
+  const navigate = useNavigate();
+
   return (
     <div className="bg-black text-white">
       {/* Hero Section */}
@@ -45,7 +51,7 @@ function AboutUs() {
       {/* Our Vision */}
       <section className="py-24 px-6 max-w-7xl mx-auto text-center">
         <motion.h2
-          className="text-5xl font-bold text-gold font-playfair"
+          className="text-5xl font-bold text-[#ffd586] font-playfair"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -71,8 +77,10 @@ function AboutUs() {
         >
           <div className="absolute inset-0 bg-gold opacity-20 blur-3xl"></div>
           <img
-            src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            className="rounded-2xl w-full max-w-sm object-cover shadow-xl backdrop-blur-lg bg-opacity-10 border border-white/20"
+            // src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+
+            src= {Logo2}
+            className="rounded-2xl w-full max-w-sm object-contain shadow-xl backdrop-blur-lg bg-opacity-10 border border-white/20"
             alt="Luxury Real Estate"
           />
         </motion.div>
@@ -97,19 +105,19 @@ function AboutUs() {
           <div className="flex flex-wrap justify-center lg:justify-start gap-12 mt-10">
             <div>
               <h3 className="text-5xl font-bold text-gold font-playfair">
-                33+
+                50+
               </h3>
               <p className="text-gray-400 text-lg">Years of Excellence</p>
             </div>
             <div>
               <h3 className="text-5xl font-bold text-gold font-playfair">
-                125+
+                17,000
               </h3>
               <p className="text-gray-400 text-lg">Prestigious Estates</p>
             </div>
             <div>
               <h3 className="text-5xl font-bold text-gold font-playfair">
-                52+
+                10,000+
               </h3>
               <p className="text-gray-400 text-lg">Exclusive Clients</p>
             </div>
@@ -139,6 +147,8 @@ function AboutUs() {
         </p>
         <motion.button
           className="mt-8 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-lg hover:bg-opacity-80 transition-all duration-500"
+          onClick={() => navigate("/")}
+          
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
