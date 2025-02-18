@@ -6,7 +6,8 @@ import Testimonials from "../../components/Testimonials/Testimonials.jsx"
 import Video from "../../components/Video/Video.jsx"
 import { useParams, useNavigate } from "react-router-dom";
 // import logo from "../../assets/logo.png";
-import Logo2 from "../../assets/Logo2.jpeg";
+import Logo from "../../assets/Logo_single.jpeg";
+// import Logo from "../../assets/Logo2.jpeg";
 
 
 
@@ -79,7 +80,7 @@ function AboutUs() {
           <img
             // src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
-            src= {Logo2}
+            src= {Logo}
             className="rounded-2xl w-full max-w-sm object-contain shadow-xl backdrop-blur-lg bg-opacity-10 border border-white/20"
             alt="Luxury Real Estate"
           />

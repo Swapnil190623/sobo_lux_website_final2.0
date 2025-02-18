@@ -121,12 +121,13 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Image1 from "./property_consultation.svg";
-import Image2 from "./buy_sell.svg";
-import Image3 from "./leasing_services.svg";
-import Image4 from "./investment.svg";
-import Image5 from "./Markenting_Sobo.svg";
-import Image6 from "./Project_Management.svg";
+import Image1 from "../../assets/property_consultation.svg";
+import Image2 from "../../assets/buy_sell.svg";
+
+import Image3 from "../../assets/leasing_services.svg";
+import Image4 from "../../assets/investment.svg";
+import Image5 from "../../assets/Markenting_Sobo.svg";
+import Image6 from "../../assets/Project_Management.svg";
 
 // Service Card Component
 const ServiceCard = ({ image, title, description, index }) => {
