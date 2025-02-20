@@ -85,7 +85,8 @@ import { Link } from "react-router-dom";
 const propertyTypes = [
   {
     title: "Sea Facing",
-    image: "https://images.pexels.com/photos/9892600/pexels-photo-9892600.png",
+    image: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg",
+
     description: "Wake up to the sound of waves and ocean breezes.",
   },
   {
@@ -102,7 +103,7 @@ const propertyTypes = [
   },
   {
     title: "Duplex",
-    image: "https://images.pexels.com/photos/1732414/pexels-photo-1732414.jpeg",
+    image: "https://images.pexels.com/photos/9892600/pexels-photo-9892600.png",
     description: "Spacious, modern multi-level apartments.",
   },
 ];
