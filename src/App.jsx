@@ -1,6 +1,6 @@
 // ./App.js
 import "./App.css";
-import "./assets/fonts/badoni.ttf";
+import "./assets/fonts/bodoni.ttf";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";

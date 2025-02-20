@@ -245,7 +245,7 @@ const Header = () => {
           {isMenuOpen && (
             <motion.button
               onClick={() => setIsMenuOpen(false)}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-800 text-white focus:outline-none absolute top-4 right-4 z-50"
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-black text-[#ffd586] focus:outline-none absolute top-4 right-4 z-50"
               aria-label="Close Menu"
               style={{ zIndex: 60 }}
               initial={{ opacity: 0 }}
@@ -280,7 +280,7 @@ const Header = () => {
           transition={{ duration: 0.3, ease: "easeIn" }}
         >
           <motion.div
-            className="fixed top-0 left-0 w-1/2 min-w-[280px] bg-gray-800 h-full p-4 sm:p-6 shadow-md overflow-auto"
+            className="fixed top-0 left-0 w-1/2 min-w-[280px] bg-gray-950 h-full p-4 sm:p-6 shadow-md overflow-auto"
             initial={{ x: "-100%" }}
             animate={{ x: "0%" }}
             transition={{ type: "spring", stiffness: 300, ease: "easeIn" }}
@@ -299,7 +299,7 @@ const Header = () => {
                 <li key={item.name}>
                   <motion.button
                     onClick={() => handleNavigation(item.route)}
-                    className="w-full text-left text-white hover:text-blue-400 font-medium text-base sm:text-lg transition-all duration-300 ease-in-out"
+                    className="w-full text-left text-[#ffd586] hover:text-gray-200 font-medium text-base sm:text-lg transition-all duration-300 ease-in-out"
                     whileHover={{ scale: 1.02 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
