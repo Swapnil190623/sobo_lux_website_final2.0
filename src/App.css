@@ -1,19 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-* {
-  font-family: "Playfair Display", serif;
+
+
+@font-face {
+  font-family: "Bodoni";
+  src: url("../assets/fonts/badoni.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
+
+/* Apply to the entire website */
+body {
+  font-family: "Bodoni", serif;
+}
+
+
 .background {
   width: 100%;
 }
 
+
+
 /* index.css or global.css */
+
 html {
-  
-  
-
-  
-
   background: linear-gradient(to right, #212327, #000102);
 
   /* background: linear-gradient(to bottom, #111827, #000); */
@@ -31,7 +41,6 @@ section {
   background-color: black; /* Change the background color to black */
   color: white; /* Optional: Change text color to white for better contrast */
 }
-
 
 .logo {
   height: 6em;
