@@ -37,6 +37,7 @@ const PropertyCard = ({ property }) => {
         borderRadius: "15px",
         boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)", // Soft Shadow
         border: "1px solid rgba(255, 255, 255, 0.3)", // Glass Border Effect
+        filter: "brightness(90%)", // Adjust the percentage for desired effect
       }}
       onClick={() => navigate(`/property/${property.id}`)}
     >

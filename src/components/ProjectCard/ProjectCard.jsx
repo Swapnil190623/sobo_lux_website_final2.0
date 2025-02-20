@@ -53,6 +53,9 @@ const ProjectCard = ({ property }) => {
             backgroundSize: "cover",
             backgroundPosition: "bottom",
             backgroundRepeat: "no-repeat",
+            filter: "brightness(90%)", // Adjust the percentage for desired effect
+
+            
           }}
           onError={handleBrokenImage}
         >
