@@ -91,7 +91,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import Video1 from "./Reflex_Bg.mp4";
+import Video1 from "../../assets/Reflex_Bg.mp4";
 
 const Video = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
@@ -143,7 +143,7 @@ const Video = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="text-4xl sm:text-5xl font-extrabold uppercase text-[#ffd586] drop-shadow-lg"
+          className="text-4xl sm:text-5xl  uppercase  font-bold   bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair  tracking-wider  drop-shadow-lg"
         >
           Luxury at its Finest
         </motion.h1>

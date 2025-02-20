@@ -6,7 +6,7 @@ import DisplayLocationCard from "../../components/DisplayCard/DisplayLocationCar
 
 import Content from "../../components/Content/Content";
 import Banner from "../../components/Banner/Banner";
-import Video from "../../components/Video/Video.jsx"
+import Video from "../../components/Video/Video.jsx";
 
 import ProjectCard from "../../components/ProjectCard/ProjectCard.jsx";
 
@@ -33,8 +33,10 @@ function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h2 className="text-3xl font-bold text-gray-200 tracking-wide
-          ">
+          <h2
+            className="text-3xl font-bold text-gray-200 tracking-wide
+          "
+          >
             Exclusive Homes. Iconic Views. Unmatched Luxury.
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
@@ -80,7 +82,7 @@ function Home() {
       {/* Featured Projects will be displayd Here . this will display the projects ,  passing projectsData2 data here */}
       <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider">
+          <h2 className=" font-bold text-4xl  bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg tracking-wider">
             Featured Luxury Homes
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
@@ -104,7 +106,7 @@ function Home() {
       {/* All Projects Are displayed here ... */}
       <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider ">
+          <h2 className="   font-bold text-4xl  bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg  tracking-wider ">
             Explore Sobo's Luxury Projects
           </h2>
           <p className="text-gray-400 text-lg font-semibold">
@@ -123,7 +125,7 @@ function Home() {
           </div>
         )}
       </section>
-{/* 
+      {/* 
       {/* All Properties Are displayed here ... */}
       {/* <section className="p-6 " style={{ maxWidth: "1200px", margin: "auto" }}>
         <div className="text-center mb-6">
@@ -145,58 +147,53 @@ function Home() {
             No properties available Here .
           </div>
         )}
-      </section> */} 
+      </section> */}
 
+      {/* All Properties Are displayed here ... */}
+      <section className="p-6" style={{ maxWidth: "1200px", margin: "auto" }}>
+        <div className="text-center mb-6">
+          <h2 className=" font-bold text-4xl  bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg tracking-wider ">
+            Discover Properties With Sobo Luxe
+          </h2>
+          <p className="text-gray-400 text-lg font-semibold">
+            Find your perfect property from our wide range of projects.
+          </p>
+        </div>
 
-     {/* All Properties Are displayed here ... */}
-<section className="p-6" style={{ maxWidth: "1200px", margin: "auto" }}>
-  <div className="text-center mb-6">
-    <h2 className="text-3xl font-bold text-[#ffd586] tracking-wider ">
-      Discover Properties With Sobo Luxe
-    </h2>
-    <p className="text-gray-400 text-lg font-semibold">
-      Find your perfect property from our wide range of projects.
-    </p>
-  </div>
+        {Data.PropertyData2 && Data.PropertyData2.length > 0 ? (
+          <ScrollableRow scrollAmount={300}>
+            {Data.PropertyData2.slice() // Create a copy to avoid mutating original data
+              .sort((a, b) => {
+                const getPriceValue = (price) => {
+                  if (!price) return 0;
+                  const num = price.replace(/₹|,/g, "").trim().toLowerCase();
+                  if (num.includes("cr")) return parseFloat(num) * 10000000; // Convert Cr to numerical value
+                  if (num.includes("lakh")) return parseFloat(num) * 100000; // Convert Lakh to numerical value
+                  return parseFloat(num); // If it's already a number
+                };
 
-  {Data.PropertyData2 && Data.PropertyData2.length > 0 ? (
-    <ScrollableRow scrollAmount={300}>
-      {Data.PropertyData2
-        .slice() // Create a copy to avoid mutating original data
-        .sort((a, b) => {
-          const getPriceValue = (price) => {
-            if (!price) return 0;
-            const num = price.replace(/₹|,/g, "").trim().toLowerCase();
-            if (num.includes("cr")) return parseFloat(num) * 10000000; // Convert Cr to numerical value
-            if (num.includes("lakh")) return parseFloat(num) * 100000; // Convert Lakh to numerical value
-            return parseFloat(num); // If it's already a number
-          };
-
-          return getPriceValue(b.price) - getPriceValue(a.price); // Sort in descending order
-        })
-        .map((ele, index) => (
-          <PropertyCard key={index} property={ele} />
-        ))}
-    </ScrollableRow>
-  ) : (
-    <div className="text-center text-gray-500">
-      No properties available here.
-    </div>
-  )}
-</section>
-
-
+                return getPriceValue(b.price) - getPriceValue(a.price); // Sort in descending order
+              })
+              .map((ele, index) => (
+                <PropertyCard key={index} property={ele} />
+              ))}
+          </ScrollableRow>
+        ) : (
+          <div className="text-center text-gray-500">
+            No properties available here.
+          </div>
+        )}
+      </section>
 
       <Content />
 
-      <PropertyTypes/>
+      <PropertyTypes />
 
       {/* <Banner /> */}
 
       {/* <Banner2 /> */}
 
-      <Video/>
-      
+      <Video />
 
       <br />
     </>

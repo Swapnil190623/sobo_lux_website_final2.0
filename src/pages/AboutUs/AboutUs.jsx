@@ -2,19 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Testimonials from "../../components/Testimonials/Testimonials.jsx"
-import Video from "../../components/Video/Video.jsx"
+import Testimonials from "../../components/Testimonials/Testimonials.jsx";
+import Video from "../../components/Video/Video.jsx";
 import { useParams, useNavigate } from "react-router-dom";
 // import logo from "../../assets/logo.png";
 import Logo from "../../assets/Logo_single.jpeg";
 // import Logo from "../../assets/Logo2.jpeg";
 
-
-
-
-
 function AboutUs() {
-
   const navigate = useNavigate();
 
   return (
@@ -52,7 +47,7 @@ function AboutUs() {
       {/* Our Vision */}
       <section className="py-24 px-6 max-w-7xl mx-auto text-center">
         <motion.h2
-          className="text-5xl font-bold text-[#ffd586] font-playfair"
+          className="text-5xl font-bold bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -80,7 +75,7 @@ function AboutUs() {
           <img
             // src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 
-            src= {Logo}
+            src={Logo}
             className="rounded-2xl w-full max-w-sm object-contain shadow-xl backdrop-blur-lg bg-opacity-10 border border-white/20"
             alt="Luxury Real Estate"
           />
@@ -93,9 +88,14 @@ function AboutUs() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl font-bold text-gold font-playfair">
+          {/* <h2 className="text-4xl font-bold bg-gradient-to-r from-[#ebc17d] via-[#dfb77c] via-60% to-[#eedcc3] text-transparent bg-clip-text font-playfair">
+            Experience Unparalleled Elegance
+          </h2> */}
+
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg">
             Experience Unparalleled Elegance
           </h2>
+
           <p className="text-lg text-gray-400 mt-4 font-inter leading-relaxed">
             At our core, we believe in offering nothing less than perfection.
             Every home we present tells a story of opulence, heritage, and
@@ -128,19 +128,16 @@ function AboutUs() {
 
       {/* Meet the Team */}
       <section className="py-24 px-6 max-w-7xl mx-auto text-center">
-       
-
         {/* Team Members */}
 
-        
         <div className="bg-transparent">
-          <Testimonials/>
+          <Testimonials />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-24  text-white text-center">
-        <h2 className="text-5xl font-bold font-playfair">
+      <section className="py-24   text-center">
+        <h2 className="text-5xl font-bold font-playfair  bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg">
           Find Your Dream Property Today
         </h2>
         <p className="text-lg mt-4 font-inter">
@@ -149,14 +146,13 @@ function AboutUs() {
         <motion.button
           className="mt-8 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-lg hover:bg-opacity-80 transition-all duration-500"
           onClick={() => navigate("/")}
-          
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
           Explore Listings
         </motion.button>
 
-        <Video/>
+        <Video />
       </section>
     </div>
   );

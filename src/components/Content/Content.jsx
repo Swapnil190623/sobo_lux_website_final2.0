@@ -59,7 +59,7 @@ function Content() {
           className="flex flex-col text-center w-full mb-16"
           variants={cardVariants}
         >
-          <h2 className="text-2xl text-[#ffd586] tracking-widest font-bold uppercase mb-2">
+          <h2 className="text-2xl  font-bold   bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg tracking-wider  uppercase mb-2">
             Why Choose Sobo Luxe ?
           </h2>
           <h1 className="sm:text-4xl text-3xl font-extrabold title-font mb-4 text-gray-300">

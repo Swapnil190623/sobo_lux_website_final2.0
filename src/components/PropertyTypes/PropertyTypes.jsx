@@ -76,10 +76,7 @@
 
 //animated
 
-
-
 // new animated and currently working ..
-
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -125,7 +122,7 @@ const PropertyTypes = () => {
         transition={{ duration: 1, ease: "easeInOut" }} // Slower animation for more luxury feel
         className="text-center mb-12"
       >
-        <h2 className="text-4xl font-bold text-[#ffd586] tracking-wide">
+        <h2 className=" font-bold text-4xl  bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg tracking-wider">
           Explore Our Luxury Properties
         </h2>
         <p className="text-gray-300 mt-2 text-lg">
@@ -155,13 +152,12 @@ const PropertyTypes = () => {
                 }}
               >
                 {/* Soft Dark Overlay (keeps image visible) */}
-                <div className="absolute inset-0 bg-black/30 transition-all duration-700 group-hover:bg-black/60" /> {/* Slower hover effect */}
-
+                <div className="absolute inset-0 bg-black/30 transition-all duration-700 group-hover:bg-black/60" />{" "}
+                {/* Slower hover effect */}
                 {/* Title (Visible by default) */}
                 <div className="absolute bottom-6 left-6 right-6 text-white transition-all duration-500 group-hover:opacity-0">
                   <h3 className="text-2xl font-semibold">{property.title}</h3>
                 </div>
-
                 {/* Hover Reveal - Description */}
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-700 p-6 text-center">
                   <p className="text-lg font-medium text-white">

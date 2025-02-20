@@ -49,12 +49,20 @@
 }
 
 .footer-nav-links li a {
-  color: #ffd586; /* Gold color for text links */
+
+  font-weight: 600; /* Equivalent to font-bold */
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.2rem; /* Equivalent to text-4xl (36px) */
+  background: linear-gradient(to right, #E8C27E, #D9A441 50%, #F1E2C3);
+  background-clip: text;
   transition: color 0.3s ease;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15); /* Equivalent to drop-shadow-lg */
+  letter-spacing: 0.05em; /* Equivalent to tracking-wider */
+  font-family: "Playfair Display", serif; /* Ensure Playfair Display is loaded */
 }
+
+
 
 .footer-nav-links li a:hover {
   color: #d1d1d1; /* Lighter gold on hover */
@@ -77,7 +85,7 @@
 }
 
 .footer-email a {
-  color: #ffd586;
+  color: #dcaf5a;
   text-decoration: none;
 }
 
@@ -93,7 +101,8 @@
 }
 
 .footer-social a {
-  color: #ffd586;
+  color: #dcaf5a;
+  
   transition:
     color 0.3s ease,
     transform 0.3s ease;
