@@ -700,7 +700,7 @@ function ContactUs() {
       {/* Contact Headings */}
       <section className="py-24 px-8 max-w-[600px] mx-auto text-center">
         <motion.h2
-          className="text-5xl font-bold text-[#ffd586] font-playfair"
+          className="text-5xl font-bold bg-gradient-to-r from-[#E8C27E] via-[#D9A441] via-50% to-[#F1E2C3] text-transparent bg-clip-text font-playfair drop-shadow-lg tracking-wider font-playfair"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1 }}
