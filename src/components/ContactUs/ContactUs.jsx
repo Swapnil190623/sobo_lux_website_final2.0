@@ -859,8 +859,8 @@ function ContactUs() {
                   placeholder="Enter Sqft"
                 />
 
-              {/* Conditionally render fields when "Sell" is selected */}
-              {buyOrLease === "Sell" && (
+                {/* Conditionally render fields when "Sell" is selected */}
+                {buyOrLease === "Sell" && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                     <input
                       type="text"
@@ -917,7 +917,21 @@ function ContactUs() {
                   onChange={handleMinInputChange}
                   onBlur={handleMinBlur}
                   className="w-1/2 mr-2"
+                  InputProps={{
+                    style: { color: "white", borderColor: "lightgray" },
+                  }}
+                  InputLabelProps={{
+                    style: { color: "lightgray" }, // Label color
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": { borderColor: "lightgray" }, // Border color
+                      "&:hover fieldset": { borderColor: "#d3d3d3" }, // Lighter gray on hover
+                      "&.Mui-focused fieldset": { borderColor: "white" }, // White border when focused
+                    },
+                  }}
                 />
+
                 <TextField
                   label="Max Price"
                   type="number"
@@ -925,7 +939,21 @@ function ContactUs() {
                   onChange={handleMaxInputChange}
                   onBlur={handleMaxBlur}
                   className="w-1/2 ml-2"
+                  InputProps={{
+                    style: { color: "white", borderColor: "lightgray" },
+                  }}
+                  InputLabelProps={{
+                    style: { color: "lightgray" }, // Label color
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-root": {
+                      "& fieldset": { borderColor: "lightgray" },
+                      "&:hover fieldset": { borderColor: "#d3d3d3" },
+                      "&.Mui-focused fieldset": { borderColor: "white" },
+                    },
+                  }}
                 />
+
                 <Slider
                   className="mt-4"
                   value={budget}
