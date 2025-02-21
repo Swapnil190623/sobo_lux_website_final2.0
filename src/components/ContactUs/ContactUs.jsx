@@ -387,6 +387,12 @@ function ContactUs() {
   const [open, setOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
+  const [bldgName, setBldgName] = useState(""); // new fields
+  const [floorNo, setFloorNo] = useState(""); // new fields
+
+  const minBudget = buyOrLease === "Buy" || "Sell" ? 50000 : 5000000;
+  const maxBudget = buyOrLease === "Lease" ? 5000000 : 1500000000;
+
   //double tick method ..
 
   const callDoubleTickAPI = async (leadData) => {
@@ -451,7 +457,7 @@ function ContactUs() {
       );
       setOpen(true);
     }
-  };
+  }; // correct as main website .
 
   // Function to call LeadRat API
   const callLeadRatAPI = async (leadData) => {
@@ -475,7 +481,7 @@ function ContactUs() {
           project: "",
           property: "",
           leadExpectedBudget: "",
-          propertyType: "",
+          propertyType: leadData.type,
           submittedDate: "",
           submittedTime: "",
           source: "",
@@ -488,11 +494,11 @@ function ContactUs() {
           leadBookedDate: "",
           leadBookedTime: "",
           additionalProperties: {
-            EnquiredFor: "Buy/Sale/Rent",
+            EnquiredFor: leadData.buyOrLease,
             BHKType: "Simplex/Duplex/PentHouse/Others",
             NoOfBHK: leadData.bhk,
-            key1: "value1",
-            key2: "value1",
+            propertyTitle: leadData.bldgName,
+            floorNo: leadData.floorNo,
           },
           primaryUser: "",
           secondaryUser: "",
@@ -532,7 +538,7 @@ function ContactUs() {
         message: "Failed to submit lead to LeadRat. Please try again.",
       };
     }
-  };
+  }; // correct as main website
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -560,6 +566,8 @@ function ContactUs() {
       location: location === "Other" ? customLocation : location, // Use custom location if "Other" is selected
       remarks,
       budget: `${budget[0]} - ${budget[1]}`,
+      bldgName,
+      floorNo,
     };
 
     // Log lead data for debugging
@@ -580,6 +588,8 @@ function ContactUs() {
       - Location: ${leadData.location || "Not Available"}
       - Remarks : ${leadData.remarks || "No remarks"}
       - Budget  : ${leadData.budget || "Not Available"}
+      - Bldg Name  : ${leadData.bldgName || "Not Available"}
+      - Floor No.  : ${leadData.floorNo || "Not Available"}
     `.trim();
 
     // Sending email with EmailJS
@@ -619,6 +629,8 @@ function ContactUs() {
     setCustomLocation(""); // Clear custom location input
     setRemarks("");
     setBudget([5000000, 150000000]); // Reset the budget slider
+    setBldgName(""); // Reset the BldgName
+    setFloorNo(""); // Reset the FloorNumber
 
     callLeadRatAPI(leadData); //calling lead_Rat Function
     callDoubleTickAPI(leadData); //calling double tick function
@@ -663,6 +675,37 @@ function ContactUs() {
     }
 
     setPhone(value); // Update the phone state with the formatted value
+  };
+
+  // Handle Slider Change
+  const handleSliderChange = (_, newValue) => {
+    setBudget(newValue);
+  };
+
+  // Handle Min Price Input Change (Real-time Typing)
+  const handleMinInputChange = (e) => {
+    let newMin = Number(e.target.value);
+    setBudget([newMin, budget[1]]);
+  };
+
+  // Handle Max Price Input Change (Real-time Typing)
+  const handleMaxInputChange = (e) => {
+    let newMax = Number(e.target.value);
+    setBudget([budget[0], newMax]);
+  };
+
+  // OnBlur: Ensure Min is within bounds and <= Max
+  const handleMinBlur = () => {
+    let newMin = Math.max(budget[0], minBudget);
+    newMin = Math.min(newMin, budget[1] - 20000); // Prevent min >= max
+    setBudget([newMin, budget[1]]);
+  };
+
+  // OnBlur: Ensure Max is within bounds and >= Min
+  const handleMaxBlur = () => {
+    let newMax = Math.min(budget[1], maxBudget);
+    newMax = Math.max(newMax, budget[0] + 20000); // Prevent max <= min
+    setBudget([budget[0], newMax]);
   };
 
   return (
@@ -713,235 +756,347 @@ function ContactUs() {
         </p>
 
         {/* Contact Form Is Here .*/}
-        <div className="mt-12 grid grid-cols-1 gap-12">
-          <motion.div
-            className=" backdrop-blur-xl rounded-xl shadow-lg"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              placeholder="Your Name"
-              required
-            />
-          </motion.div>
 
-          {/* phone */}
-          <motion.div
-            className=" backdrop-blur-xl   rounded-xl shadow-lg"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <input
-              type="tel"
-              value={phone}
-              onChange={handlePhoneChange} // Use handlePhoneChange
-              className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              placeholder="Your Phone"
-              required
-            />
-          </motion.div>
-
-          {/* email */}
-          <motion.div
-            className=" backdrop-blur-xl   rounded-xl shadow-lg"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              placeholder="Your Email"
-            />
-          </motion.div>
-
-          {/* Dropdown Section For Type & BHK */}
-          <motion.div
-            className=" backdrop-blur-xl  rounded-xl shadow-lg"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
-              <select
-                value={buyOrLease}
-                onChange={handleBuyOrLeaseChange}
-                className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              >
-                <option value="Buy">Buy</option>
-                <option value="Sell">Sell</option>
-                <option value="Lease">Lease</option>
-              </select>
-
-              <select
-                value={type}
-                onChange={(e) => setType(e.target.value)}
-                className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              >
-                <option value="Residential">Residential</option>
-                <option value="Commercial">Commercial</option>
-                <option value="Land">Land</option>
-              </select>
-
-              <select
-                value={bhk}
-                onChange={(e) => setBhk(e.target.value)}
-                className={`mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold ${type === "Commercial" || type === "Land" ? "line-through" : ""}`}
-                disabled={type === "Commercial" || type === "Land"}
-              >
-                <option value="1 BHK">1 BHK</option>
-                <option value="2 BHK">2 BHK</option>
-                <option value="3 BHK">3 BHK</option>
-                <option value="4 BHK">4 BHK</option>
-                <option value="5 BHK">5 BHK</option>
-                <option value="Penthouse">Penthouse</option>
-              </select>
-
+        <form onSubmit={handleSubmit}>
+          <div className="mt-12 grid grid-cols-1 gap-12">
+            <motion.div
+              className=" backdrop-blur-xl rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
               <input
                 type="text"
-                value={sqft}
-                onChange={(e) => setSqft(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-                placeholder="Enter Sqft"
+                placeholder="Your Name"
+                required
               />
-            </div>
+            </motion.div>
 
-            {/* budget slider  */}
-            <div className="mb-2">
-              <Typography variant="body1" className="mb-2">
-                Select Your Budget
-              </Typography>
-              <Slider
-                value={budget}
-                onChange={(_, newValue) => setBudget(newValue)}
-                valueLabelDisplay="auto"
-                min={buyOrLease === "Lease" ? 50000 : 5000000}
-                max={buyOrLease === "Lease" ? 5000000 : 1500000000}
-                step={50000}
-                valueLabelFormat={(value) => formatNumber(value)}
-              />
-              <div className="flex justify-between">
-                <Typography variant="body2">
-                  {formatNumber(budget[0])}
-                </Typography>
-                <Typography variant="body2">
-                  {formatNumber(budget[1])}
-                </Typography>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Location */}
-          <motion.div
-            className=" backdrop-blur-xl rounded-xl shadow-lg"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <div className="mb-2">
-              <select
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+            {/* phone */}
+            <motion.div
+              className=" backdrop-blur-xl   rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <input
+                type="tel"
+                value={phone}
+                onChange={handlePhoneChange} // Use handlePhoneChange
                 className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              >
-                <option value="">Select Location</option>
-                <option value="Worli , Mumbai">Worli , Mumbai</option>
-                <option value="Matunga East, Mumbai">
-                  Matunga East, Mumbai
-                </option>
-                <option value="Andheri West, Mumbai">
-                  Andheri West, Mumbai
-                </option>
-                <option value="Bandra, Mumbai">Bandra, Mumbai</option>
-                <option value="Marine Lines, Mumbai">
-                  Marine Lines, Mumbai
-                </option>
-                <option value="Mahalaxmi, Mumbai">Mahalaxmi, Mumbai</option>
-                <option value="Malabar Hill, Mumbai">
-                  Malabar Hill, Mumbai
-                </option>
+                placeholder="Your Phone"
+                required
+              />
+            </motion.div>
 
-                <option value="Other">Other</option>
-              </select>
-              {location === "Other" && (
+            {/* email */}
+            <motion.div
+              className=" backdrop-blur-xl   rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
+                placeholder="Your Email"
+              />
+            </motion.div>
+
+            {/* Dropdown Section For Type & BHK */}
+            <motion.div
+              className=" backdrop-blur-xl  rounded-xl shadow-lg"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+                <select
+                  value={buyOrLease}
+                  onChange={handleBuyOrLeaseChange}
+                  className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
+                >
+                  <option value="Buy">Buy</option>
+                  <option value="Sell">Sell</option>
+                  <option value="Lease">Lease Requirement</option>
+                  <option value="Lease Offer">Lease Offer</option>
+                </select>
+
+                <select
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
+                >
+                  <option value="Residential">Residential</option>
+                  <option value="Commercial">Commercial</option>
+                  <option value="Land">Land</option>
+                </select>
+
+                <select
+                  value={bhk}
+                  onChange={(e) => setBhk(e.target.value)}
+                  className={`mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold ${type === "Commercial" || type === "Land" ? "line-through" : ""}`}
+                  disabled={type === "Commercial" || type === "Land"}
+                >
+                  <option value="1 BHK">1 BHK</option>
+                  <option value="2 BHK">2 BHK</option>
+                  <option value="3 BHK">3 BHK</option>
+                  <option value="4 BHK">4 BHK</option>
+                  <option value="5 BHK">5 BHK</option>
+                  <option value="Penthouse">Penthouse</option>
+                </select>
+
                 <input
                   type="text"
-                  value={customLocation}
-                  onChange={(e) => setCustomLocation(e.target.value)}
-                  className="w-full h-12 mt-4 rounded-full border pl-4"
-                  placeholder="Enter Custom Location"
+                  value={sqft}
+                  onChange={(e) => setSqft(e.target.value)}
+                  className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
+                  placeholder="Enter Sqft"
                 />
-              )}
-            </div>
-          </motion.div>
 
-          {/* Date & Time */}
-          <motion.div
-            className=" backdrop-blur-xl   rounded-xl shadow-lg"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <textarea
-              value={remarks}
-              onChange={(e) => setRemarks(e.target.value)}
-              className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
-              placeholder="Remarks or Additional Information "
-            />
+                {/* Conditionally render fields when "Sell" is selected */}
+                {buyOrLease === "Sell" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
+                    <input
+                      type="text"
+                      value={bldgName}
+                      onChange={(e) => setBldgName(e.target.value)}
+                      placeholder="Bldg Name"
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                    <input
+                      type="text"
+                      value={floorNo}
+                      onChange={(e) => setFloorNo(e.target.value)}
+                      placeholder="Floor No."
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                  </div>
+                )}
 
-            <h3 className="text-gray-400 mt-4 tracking-wider font-manrope text-2xl font-semibold leading-8 mb-4">
-              Book Your Online Slot / Visit
-            </h3>
-            <div className="mb-4 flex items-center justify-between bg-gray-200 p-2 rounded-xl">
-              <div className="w-1/2 pr-2">
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DateTimePicker
-                    label="Date & Time"
-                    value={dateTime}
-                    onChange={setDateTime}
-                    renderInput={(params) => (
-                      <TextField
-                        {...params}
-                        variant="outlined"
-                        fullWidth
-                        className="h-12"
-                      />
-                    )}
-                  />
-                </LocalizationProvider>
+                {/* Conditionally render fields when "Sell" is selected */}
+                {buyOrLease === "Lease Offer" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
+                    <input
+                      type="text"
+                      value={bldgName}
+                      onChange={(e) => setBldgName(e.target.value)}
+                      placeholder="Bldg Name"
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                    <input
+                      type="text"
+                      value={floorNo}
+                      onChange={(e) => setFloorNo(e.target.value)}
+                      placeholder="Floor No."
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                  </div>
+                )}
+
+                {/* Conditionally render fields when "Sell" is selected */}
+                {buyOrLease === "Sell" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
+                    <input
+                      type="text"
+                      value={bldgName}
+                      onChange={(e) => setBldgName(e.target.value)}
+                      placeholder="Bldg Name"
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                    <input
+                      type="text"
+                      value={floorNo}
+                      onChange={(e) => setFloorNo(e.target.value)}
+                      placeholder="Floor No."
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                  </div>
+                )}
+
+                {/* Conditionally render fields when "Sell" is selected */}
+                {buyOrLease === "Lease Offer" && (
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
+                    <input
+                      type="text"
+                      value={bldgName}
+                      onChange={(e) => setBldgName(e.target.value)}
+                      placeholder="Bldg Name"
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                    <input
+                      type="text"
+                      value={floorNo}
+                      onChange={(e) => setFloorNo(e.target.value)}
+                      placeholder="Floor No."
+                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
+                    />
+                  </div>
+                )}
               </div>
 
-              <div className="w-1/2 pl-2">
+              {/* Budget Slider */}
+              <div className="mb-10">
+                <h2 className=" font-semibold mb-4 text-xl text-black">
+                  Select Your Budget / Value
+                </h2>
+
+                {/* Input Fields for Min & Max Price (Above Slider) */}
+
+                <div></div>
+
+                <TextField
+                  label="Min Price"
+                  type="number"
+                  value={budget[0]}
+                  onChange={handleMinInputChange}
+                  onBlur={handleMinBlur}
+                  className="w-1/2 mr-2"
+                />
+                <TextField
+                  label="Max Price"
+                  type="number"
+                  value={budget[1]}
+                  onChange={handleMaxInputChange}
+                  onBlur={handleMaxBlur}
+                  className="w-1/2 ml-2"
+                />
+                <Slider
+                  className="mt-4"
+                  value={budget}
+                  onChange={handleSliderChange}
+                  valueLabelDisplay="on"
+                  min={minBudget}
+                  max={maxBudget}
+                  step={20000} // 👈 Step of ₹20,000
+                  valueLabelFormat={(value) => `₹${value.toLocaleString()}`} // 👈 Adds ₹ before the value
+                />
+                <div className="flex justify-between mt-4">
+                  <Typography
+                    variant="body2"
+                    className="font-medium text-gray-600"
+                  >
+                    ₹{formatNumber(budget[0])}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    className="font-medium text-gray-600"
+                  >
+                    ₹{formatNumber(budget[1])}
+                  </Typography>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Location */}
+            <motion.div
+              className=" backdrop-blur-xl rounded-xl shadow-lg"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <div className="mb-2">
                 <select
-                  value={mode}
-                  onChange={(e) => setMode(e.target.value)}
-                  className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-gray-100 focus:outline-none focus:border-gold"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                  className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
                 >
-                  <option value="Online Meet">Online Meet</option>
-                  <option value="Whatsapp / Call">Whatsapp / Call</option>
-                  <option value="Site Visit">Site Visit</option>
-                </select>
-              </div>
-            </div>
-          </motion.div>
+                  <option value="">Select Location</option>
+                  <option value="Worli , Mumbai">Worli , Mumbai</option>
+                  <option value="Matunga East, Mumbai">
+                    Matunga East, Mumbai
+                  </option>
+                  <option value="Andheri West, Mumbai">
+                    Andheri West, Mumbai
+                  </option>
+                  <option value="Bandra, Mumbai">Bandra, Mumbai</option>
+                  <option value="Marine Lines, Mumbai">
+                    Marine Lines, Mumbai
+                  </option>
+                  <option value="Mahalaxmi, Mumbai">Mahalaxmi, Mumbai</option>
+                  <option value="Malabar Hill, Mumbai">
+                    Malabar Hill, Mumbai
+                  </option>
 
-          {/* Submit Button*/}
-          <motion.button
-            className="mt-2 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-lg hover:bg-opacity-80 transition-all duration-500"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            Send Message
-          </motion.button>
-        </div>
+                  <option value="Other">Other</option>
+                </select>
+                {location === "Other" && (
+                  <input
+                    type="text"
+                    value={customLocation}
+                    onChange={(e) => setCustomLocation(e.target.value)}
+                    className="w-full h-12 mt-4 rounded-full border pl-4"
+                    placeholder="Enter Custom Location"
+                  />
+                )}
+              </div>
+            </motion.div>
+
+            {/* Date & Time */}
+            <motion.div
+              className=" backdrop-blur-xl   rounded-xl shadow-lg"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <textarea
+                value={remarks}
+                onChange={(e) => setRemarks(e.target.value)}
+                className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-white focus:outline-none focus:border-gold"
+                placeholder="Remarks or Additional Information "
+              />
+
+              <h3 className="text-gray-400 mt-4 tracking-wider font-manrope text-2xl font-semibold leading-8 mb-4">
+                Book Your Online Slot / Visit
+              </h3>
+              <div className="mb-4 flex items-center justify-between bg-gray-200 p-2 rounded-xl">
+                <div className="w-1/2 pr-2">
+                  <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DateTimePicker
+                      label="Date & Time"
+                      value={dateTime}
+                      onChange={setDateTime}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          variant="outlined"
+                          fullWidth
+                          className="h-12"
+                        />
+                      )}
+                    />
+                  </LocalizationProvider>
+                </div>
+
+                <div className="w-1/2 pl-2">
+                  <select
+                    value={mode}
+                    onChange={(e) => setMode(e.target.value)}
+                    className="mt-2 w-full px-4 py-3 rounded-xl bg-black border-2 border-gray-600 text-gray-100 focus:outline-none focus:border-gold"
+                  >
+                    <option value="Online Meet">Online Meet</option>
+                    <option value="Whatsapp / Call">Whatsapp / Call</option>
+                    <option value="Site Visit">Site Visit</option>
+                  </select>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Submit Button*/}
+            <motion.button
+              className="mt-2 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-lg hover:bg-opacity-80 transition-all duration-500"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              Send Message
+            </motion.button>
+          </div>
+        </form>
       </section>
 
       {/* Starts From Here */}
