@@ -859,48 +859,8 @@ function ContactUs() {
                   placeholder="Enter Sqft"
                 />
 
-                {/* Conditionally render fields when "Sell" is selected */}
-                {buyOrLease === "Sell" && (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
-                    <input
-                      type="text"
-                      value={bldgName}
-                      onChange={(e) => setBldgName(e.target.value)}
-                      placeholder="Bldg Name"
-                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
-                    />
-                    <input
-                      type="text"
-                      value={floorNo}
-                      onChange={(e) => setFloorNo(e.target.value)}
-                      placeholder="Floor No."
-                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
-                    />
-                  </div>
-                )}
-
-                {/* Conditionally render fields when "Sell" is selected */}
-                {buyOrLease === "Lease Offer" && (
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
-                    <input
-                      type="text"
-                      value={bldgName}
-                      onChange={(e) => setBldgName(e.target.value)}
-                      placeholder="Bldg Name"
-                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
-                    />
-                    <input
-                      type="text"
-                      value={floorNo}
-                      onChange={(e) => setFloorNo(e.target.value)}
-                      placeholder="Floor No."
-                      className={`w-full h-12 rounded-full border  pl-3 ${type === "Land" ? "line-through" : ""}`}
-                    />
-                  </div>
-                )}
-
-                {/* Conditionally render fields when "Sell" is selected */}
-                {buyOrLease === "Sell" && (
+              {/* Conditionally render fields when "Sell" is selected */}
+              {buyOrLease === "Sell" && (
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
                     <input
                       type="text"
