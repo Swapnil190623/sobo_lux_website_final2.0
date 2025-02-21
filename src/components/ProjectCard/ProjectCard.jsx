@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoBedOutline } from "react-icons/io5";
 import PopupForm from "../PopupForm/PopupForm.jsx";
-import AreaIcon from "./Area.svg";
+import AreaIcon from "../../assets/Area.svg";
 
 const ProjectCard = ({ property }) => {
   const navigate = useNavigate();
