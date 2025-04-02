@@ -20,6 +20,7 @@ import PropertyDetailPage from "./pages/Properties/PropertyDetailPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Careers from "./pages/Careers/Careers.jsx";
 
+
 function App() {
   return (
     <Router>
