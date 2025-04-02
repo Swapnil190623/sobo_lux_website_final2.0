@@ -1,6 +1,6 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
-import Video from "./soboBanner.mp4";
+import Video from "../../assets/soboBanner.mp4";
 
 const Banner = () => {
   const { ref, inView } = useInView({

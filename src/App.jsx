@@ -18,6 +18,7 @@ import ProjectDetailPage from "./pages/Projects/ProjectDetailPage";
 import PropertyDetailPage from "./pages/Properties/PropertyDetailPage.jsx";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
+import Careers from "./pages/Careers/Careers.jsx";
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/careers" element={<Careers />} />
       </Routes>
 
    

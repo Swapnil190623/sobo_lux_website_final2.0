@@ -137,6 +137,7 @@ const Header = () => {
     { name: "Services", route: "/services" },
     { name: "About", route: "/aboutus" },
     { name: "Contact", route: "/contact" },
+    { name: "Careers", route: "/careers" },
   ];
 
   const handleNavigation = (route) => {
