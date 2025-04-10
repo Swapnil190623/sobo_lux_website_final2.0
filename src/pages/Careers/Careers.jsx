@@ -1,4 +1,4 @@
-// testing Code 2 ....
+// // testing Code 2 ....
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -88,7 +88,7 @@ function Careers() {
 
     try {
       // Send form data to Doubletick API
-      const recipientPhone = "91 9930526549"; // Replace with the actual recipient phone number
+      const recipientPhone = "91 98212 15133"; // Replace with the actual recipient phone number
       await sendToDoubleTick(formData, recipientPhone);
 
       // On success, show a success message and reset the form
@@ -268,13 +268,23 @@ function Careers() {
             <option value="" disabled>
               Select a Role
             </option>
-            <option value="Luxury Sales Specialist">
-              Luxury Sales Specialist
+            <option value="Design Architect | Senior Architect">
+              Design Architect | Senior Architect
             </option>
-            <option value="Design Architect">Design Architect</option>
-            <option value="Senior Architect">Senior Architect</option>
+            <option value="Graphic Designer">Graphic Designer</option>
             <option value="Marketing Manager">Marketing Manager</option>
-            <option value="Other">Other</option>
+            <option value="Human Resource Executive">
+              Human Resource Executive
+            </option>
+            <option value="Legal Associate">Legal Associate</option>
+            <option value="Sales Manager">Sales Manager</option>
+            <option value="Sales Executive">Sales Executive</option>
+            <option value="Real Estate Sales Intern">
+              Real Estate Sales Intern{" "}
+            </option>
+            <option value="Real Estate Pre Sales/Sourcing">
+              Real Estate Pre Sales/Sourcing{" "}
+            </option>
           </select>
 
           {/* File Upload for Resume */}
@@ -342,3 +352,8 @@ function Careers() {
 }
 
 export default Careers;
+
+
+
+
+

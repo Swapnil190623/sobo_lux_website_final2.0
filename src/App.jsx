@@ -19,7 +19,7 @@ import PropertyDetailPage from "./pages/Properties/PropertyDetailPage.jsx";
 
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Careers from "./pages/Careers/Careers.jsx";
-
+import EventRegistration from "./components/EventRegistration/EventRegistration.jsx";
 
 function App() {
   return (
@@ -38,6 +38,8 @@ function App() {
           }
         />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/event" element={<EventRegistration />} />
+
         <Route
           path="/project/:id"
           element={
@@ -64,8 +66,6 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/careers" element={<Careers />} />
       </Routes>
-
-   
 
       <Footer />
     </Router>

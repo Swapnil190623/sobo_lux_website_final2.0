@@ -1303,8 +1303,6 @@ const ProjectData1 = [
   },
 ];
 
-
-
 // reflex projects Data
 const ReflexProjectData = [
   // {

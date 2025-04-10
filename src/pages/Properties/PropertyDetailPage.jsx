@@ -228,10 +228,7 @@
 
 // export default PropertyDetailPage;
 
-
-
-// /glass effect 
-
+// /glass effect
 
 // import React, { useState } from "react";
 // import { useParams, useNavigate } from "react-router-dom";
@@ -393,8 +390,6 @@
 
 // export default PropertyDetailPage;
 
-
-
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -494,17 +489,41 @@ const PropertyDetailPage = ({ properties = [] }) => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-lg text-white space-y-4 drop-shadow-lg">
-              <p><strong>Price:</strong> {property.price || "Ask For Details"}</p>
-              <p><strong>Location:</strong> {property.location || "Ask For Details"}</p>
-              <p><strong>Type:</strong> {property.propertyType || "Ask For Details"}</p>
-              <p><strong>BHK:</strong> {property.bhk || "Ask For Details"}</p>
-              <p><strong>Project Status:</strong> {property.projectStatus || "Ask For Details"}</p>
+              <p>
+                <strong>Price:</strong> {property.price || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Location:</strong>{" "}
+                {property.location || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Type:</strong>{" "}
+                {property.propertyType || "Ask For Details"}
+              </p>
+              <p>
+                <strong>BHK:</strong> {property.bhk || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Project Status:</strong>{" "}
+                {property.projectStatus || "Ask For Details"}
+              </p>
             </div>
             <div className="text-lg text-white space-y-4 drop-shadow-lg">
-              <p><strong>Area:</strong> {property.area || "Ask For Details"}</p>
-              <p><strong>Furnish Status:</strong> {property.furnishStatus || "Ask For Details"}</p>
-              <p><strong>Possession:</strong> {property.possession || "Ask For Details"}</p>
-              <p><strong>Expected Closure:</strong> {property.expectedClosure || "Ask For Details"}</p>
+              <p>
+                <strong>Area:</strong> {property.area || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Furnish Status:</strong>{" "}
+                {property.furnishStatus || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Possession:</strong>{" "}
+                {property.possession || "Ask For Details"}
+              </p>
+              <p>
+                <strong>Expected Closure:</strong>{" "}
+                {property.expectedClosure || "Ask For Details"}
+              </p>
             </div>
           </div>
         </motion.div>
@@ -517,8 +536,12 @@ const PropertyDetailPage = ({ properties = [] }) => {
           <h2 className="text-3xl font-semibold text-white mb-6 drop-shadow-lg">
             Contact Agent
           </h2>
-          <p className="text-lg text-white"><strong>Phone: +91 9224448861</strong></p>
-          <p className="text-lg text-white"><strong>Email:</strong> {property.contactAgent?.email || "N/A"}</p>
+          <p className="text-lg text-white">
+            <strong>Phone: +91 9224448861</strong>
+          </p>
+          <p className="text-lg text-white">
+            <strong>Email:</strong> {property.contactAgent?.email || "N/A"}
+          </p>
         </motion.div>
 
         {/* Actions Section */}
@@ -535,9 +558,15 @@ const PropertyDetailPage = ({ properties = [] }) => {
           <button
             className="flex-1 py-4 bg-gray-100 text-gray-900 text-lg font-medium rounded-lg shadow-sm hover:shadow-md transition duration-300"
             onClick={() => {
-              const whatsappNumber = property.contactAgent?.phone || "919224448861";
-              const message = encodeURIComponent(`Hello, I'm interested in the property: ${property.type || "Property"}`);
-              window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+              const whatsappNumber =
+                property.contactAgent?.phone || "919224448861";
+              const message = encodeURIComponent(
+                `Hello, I'm interested in the property: ${property.type || "Property"}`
+              );
+              window.open(
+                `https://wa.me/${whatsappNumber}?text=${message}`,
+                "_blank"
+              );
             }}
           >
             Contact via WhatsApp
@@ -547,7 +576,10 @@ const PropertyDetailPage = ({ properties = [] }) => {
 
       {/* PopupForm Component */}
       {isPopupVisible && (
-        <PopupForm onClose={() => setIsPopupVisible(false)} property={property} />
+        <PopupForm
+          onClose={() => setIsPopupVisible(false)}
+          property={property}
+        />
       )}
     </motion.div>
   );
