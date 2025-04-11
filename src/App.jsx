@@ -38,7 +38,7 @@ function App() {
           }
         />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/event" element={<EventRegistration />} />
+        <Route path="/events" element={<EventRegistration />} />
 
         <Route
           path="/project/:id"

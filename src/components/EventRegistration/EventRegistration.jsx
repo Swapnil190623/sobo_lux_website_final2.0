@@ -5,15 +5,16 @@ import axios from "axios";
 
 function EventRegistration() {
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: "",
     event: "",
+    bhk: "",
+    budget: "",
+    remarks: "", // ← add this
     proof: null,
   });
-
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
@@ -54,7 +55,7 @@ function EventRegistration() {
       {/* Hero Section */}
       <section className="h-screen flex items-center justify-center px-6 relative text-center overflow-hidden">
         <motion.div
-          className="absolute inset-0 bg-[url('https://cdn.pixabay.com/photo/2015/10/18/14/10/smoke-994491_1280.jpg')] bg-cover bg-center brightness-50"
+          className="absolute inset-0 bg-[url('https://keystonerealestateadvisory.com/storage/app/uploads/property/JL5XOM2k5vZiG8PDzK8jHXPv2LHfIIQ7mAW20gRM.webp')] bg-cover bg-center brightness-50"
           style={{
             clipPath: "polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)",
           }}
@@ -119,7 +120,7 @@ function EventRegistration() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Full Name"
+            placeholder="Name"
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-[#D9A441]"
             required
           />
@@ -128,7 +129,7 @@ function EventRegistration() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Phone Number"
+            placeholder="Phone "
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-[#D9A441]"
             required
           />
@@ -206,7 +207,14 @@ function EventRegistration() {
             <option value="20+">20 CR +</option>
           </select>
 
-          
+          <textarea
+            name="remarks"
+            value={formData.remarks || ""}
+            onChange={handleChange}
+            placeholder="Remarks"
+            className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-[#D9A441]"
+            rows={4}
+          />
 
           {/* Submit */}
           <motion.button
