@@ -9,11 +9,11 @@ function EventRegistration() {
     name: "",
     phone: "",
     email: "",
-    event: "",
+    visitDay: "",
+    visitTime: "",
     bhk: "",
     budget: "",
-    remarks: "", // ← add this
-    proof: null,
+    remarks: "",
   });
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
@@ -32,21 +32,81 @@ function EventRegistration() {
     setIsError(false);
 
     try {
-      // Here you can integrate with backend/API like Firebase, Formspree, or Node endpoint
-      // For example only: mock submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setMessage("🎉 Registration successful!");
+      // Send form data to Doubletick API
+      const recipientPhone = "91 98212 15133"; // Replace with the actual recipient phone number
+      await sendToDoubleTick(formData, recipientPhone);
+
+      // On success, show a success message and reset the form
+      setMessage("Registered Succesfully ✨");
       setFormData({
         name: "",
         phone: "",
         email: "",
-        event: "",
-        proof: null,
+        visitDay: "",
+        visitTime: "",
+        bhk: "",
+        budget: "",
+        remarks: "",
       });
     } catch (error) {
-      console.error("Registration error:", error);
-      setMessage("❌ Something went wrong. Please try again.");
+      // On error, show an error message
+      setMessage("Failed to register. Please try again.");
       setIsError(true);
+    }
+  };
+
+  // Doubletick API method
+  const sendToDoubleTick = async (formData, phone) => {
+    // Get the current date and time
+    // const currentDateTime = new Date().toLocaleString(); // You can format the date and time as needed
+    // Prepare message data object
+    const messageData = {
+      messages: [
+        {
+          to: phone, // Recipient phone number
+          content: {
+            templateName: "event_micl", // Template name
+            language: "en",
+            templateData: {
+              body: {
+                placeholders: [
+                  formData.name, // Placeholder 1
+                  formData.phone, // Placeholder 2
+                  formData.email, // Placeholder 3
+                  formData.visitDay, // Placeholder 4
+
+                  formData.visitTime, // placeholder 6
+                  formData.bhk, // placeholder 7
+                  formData.budget, // placeholder 8
+                  formData.remarks, // placeholder 9
+                ],
+              },
+            },
+          },
+        },
+      ],
+    };
+
+    try {
+      // Send the request to Doubletick API
+      const response = await axios.post(
+        "https://public.doubletick.io/whatsapp/message/template",
+        messageData,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/json",
+            Authorization: "key_M7wvrSnTcq", // Authorization key
+          },
+        }
+      );
+
+      // Return the response from the API
+      return response.data;
+    } catch (error) {
+      // Log the error and throw it for further handling
+      console.error("Error sending message to Doubletick:", error);
+      throw new Error("Failed to send message to Doubletick.");
     }
   };
 
@@ -143,8 +203,8 @@ function EventRegistration() {
             required
           />
           <select
-            name="event"
-            value={formData.event}
+            name="visitDay"
+            value={formData.visitDay}
             onChange={handleChange}
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-[#D9A441]"
             required
@@ -157,8 +217,8 @@ function EventRegistration() {
           </select>
 
           <select
-            name="event"
-            value={formData.event}
+            name="visitTime"
+            value={formData.visitTime}
             onChange={handleChange}
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-[#D9A441]"
             required
@@ -176,7 +236,7 @@ function EventRegistration() {
 
           <select
             name="bhk"
-            value={formData.event}
+            value={formData.bhk}
             onChange={handleChange}
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-[#D9A441]"
             required
@@ -192,8 +252,8 @@ function EventRegistration() {
           </select>
 
           <select
-            name="bhk"
-            value={formData.event}
+            name="budget"
+            value={formData.budget}
             onChange={handleChange}
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-[#D9A441]"
             required
@@ -240,13 +300,13 @@ function EventRegistration() {
         <p className="text-lg text-gray-300 mt-4">
           A luxurious experience awaits you.
         </p>
-        <motion.button
+        {/* <motion.button
           onClick={() => navigate("/")}
           className="mt-8 px-6 py-3 bg-[#ffd586] text-black text-lg font-semibold rounded-xl shadow-md hover:bg-opacity-80"
           whileHover={{ scale: 1.05 }}
         >
           Back to Home
-        </motion.button>
+        </motion.button> */}
       </section>
     </div>
   );
