@@ -298,12 +298,6 @@ const Footer = () => {
             Suite 301, Turf View, 63, Dadarkar Compound, Opp. Tardeo Rd, Tardeo,
             Mumbai, Maharashtra 400034
           </p>
-          <p className="footer-email">
-            Email:{" "}
-            <a href="mailto:reflexrealty.mumbai@gmail.com">
-              reflexrealty.mumbai@gmail.com
-            </a>
-          </p>
 
           {/* Social Media Icons */}
           <div className="footer-social">
