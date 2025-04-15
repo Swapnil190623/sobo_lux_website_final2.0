@@ -294,10 +294,13 @@ const Footer = () => {
 
         {/* Contact Info & Social Icons */}
         <div className="footer-contact">
-          <p className="footer-address ">
+          {/* <p className="footer-address ">
             Suite 301, Turf View, 63, Dadarkar Compound, Opp. Tardeo Rd, Tardeo,
             Mumbai, Maharashtra 400034
-          </p>
+          </p> */}
+
+          <p className=" text-xl text-white mb-2 ">Contact</p>
+          <p className=" text-xl text-white ">+91 92244 48861</p>
 
           {/* Social Media Icons */}
           <div className="footer-social">
