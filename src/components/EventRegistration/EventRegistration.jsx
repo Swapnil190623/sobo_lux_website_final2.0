@@ -33,7 +33,7 @@ function EventRegistration() {
 
     try {
       // Send form data to Doubletick API
-      const recipientPhone = "91 98212 15133"; // Replace with the actual recipient phone number
+      const recipientPhone = "91 9221053932"; // Replace with the actual recipient phone number
       await sendToDoubleTick(formData, recipientPhone);
 
       // On success, show a success message and reset the form
