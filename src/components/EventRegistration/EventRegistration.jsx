@@ -34,7 +34,11 @@ function EventRegistration() {
     try {
       // Send form data to Doubletick API
       // const recipientPhone = "91 9221053932"; // Replace with the actual recipient phone number
-      const recipientPhones = ["91 9221053932", "91 9930526549","91 7208981709"]; // Add more numbers here
+      const recipientPhones = [
+        "91 9221053932",
+        "91 9930526549",
+        "91 7208981709",
+      ]; // Add more numbers here
 
       await sendToDoubleTick(formData, recipientPhones);
 
@@ -82,7 +86,7 @@ function EventRegistration() {
         },
       })),
     };
-  
+
     try {
       const response = await axios.post(
         "https://public.doubletick.io/whatsapp/message/template",
@@ -101,8 +105,6 @@ function EventRegistration() {
       throw new Error("Failed to send message to Doubletick.");
     }
   };
-
-
 
   return (
     <div className="bg-black text-white font-inter">
@@ -206,8 +208,8 @@ function EventRegistration() {
             <option value="" disabled>
               Prefferd Day Of Visit
             </option>
-            <option value="26th April 2025">26th April 2025</option>
-            <option value=" 27th April 2025">27th April 2025</option>
+            <option value="3rd May 2025">3rd May 2025</option>
+            <option value="4th May 2025">4th May 2025</option>
           </select>
 
           <select
