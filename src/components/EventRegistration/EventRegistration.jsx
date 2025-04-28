@@ -33,8 +33,10 @@ function EventRegistration() {
 
     try {
       // Send form data to Doubletick API
-      const recipientPhone = "91 9221053932"; // Replace with the actual recipient phone number
-      await sendToDoubleTick(formData, recipientPhone);
+      // const recipientPhone = "91 9221053932"; // Replace with the actual recipient phone number
+      const recipientPhones = ["91 9221053932", "91 9930526549","91 7208981709"]; // Add more numbers here
+
+      await sendToDoubleTick(formData, recipientPhones);
 
       // On success, show a success message and reset the form
       setMessage("Registered Succesfully ✨");
@@ -56,39 +58,32 @@ function EventRegistration() {
   };
 
   // Doubletick API method
-  const sendToDoubleTick = async (formData, phone) => {
-    // Get the current date and time
-    // const currentDateTime = new Date().toLocaleString(); // You can format the date and time as needed
-    // Prepare message data object
+  const sendToDoubleTick = async (formData, phones) => {
     const messageData = {
-      messages: [
-        {
-          to: phone, // Recipient phone number
-          content: {
-            templateName: "event_micl", // Template name
-            language: "en",
-            templateData: {
-              body: {
-                placeholders: [
-                  formData.name, // Placeholder 1
-                  formData.phone, // Placeholder 2
-                  formData.email, // Placeholder 3
-                  formData.visitDay, // Placeholder 4
-
-                  formData.visitTime, // placeholder 6
-                  formData.bhk, // placeholder 7
-                  formData.budget, // placeholder 8
-                  formData.remarks, // placeholder 9
-                ],
-              },
+      messages: phones.map((phone) => ({
+        to: phone, // Loop through each phone number
+        content: {
+          templateName: "event_micl",
+          language: "en",
+          templateData: {
+            body: {
+              placeholders: [
+                formData.name,
+                formData.phone,
+                formData.email,
+                formData.visitDay,
+                formData.visitTime,
+                formData.bhk,
+                formData.budget,
+                formData.remarks,
+              ],
             },
           },
         },
-      ],
+      })),
     };
-
+  
     try {
-      // Send the request to Doubletick API
       const response = await axios.post(
         "https://public.doubletick.io/whatsapp/message/template",
         messageData,
@@ -96,19 +91,18 @@ function EventRegistration() {
           headers: {
             accept: "application/json",
             "content-type": "application/json",
-            Authorization: "key_M7wvrSnTcq", // Authorization key
+            Authorization: "key_M7wvrSnTcq",
           },
         }
       );
-
-      // Return the response from the API
       return response.data;
     } catch (error) {
-      // Log the error and throw it for further handling
       console.error("Error sending message to Doubletick:", error);
       throw new Error("Failed to send message to Doubletick.");
     }
   };
+
+
 
   return (
     <div className="bg-black text-white font-inter">

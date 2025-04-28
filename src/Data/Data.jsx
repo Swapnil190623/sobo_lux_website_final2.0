@@ -2120,7 +2120,6 @@ const PropertyData2 = [
       "Lodha Bellissimo Matunga is a luxury residential property in Matunga, Mumbai cultural centre. The Lodha Group luxury residences offer an unmatched lifestyle. The project covers 10 acres and has 104 units. The project includes 2BHK, 3BHK, and 4BHK units. A clubhouse, swimming pool, exercise centre, sports facilities, and gorgeous landscaping make living comfortable.",
     image: "https://i.ibb.co/tY6DJ9B/Lodha-Grandure.png",
   },
-
   {
     id: 7,
     isExclusive: false,
