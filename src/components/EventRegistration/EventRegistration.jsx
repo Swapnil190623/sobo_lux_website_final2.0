@@ -35,12 +35,14 @@ function EventRegistration() {
       // Send form data to Doubletick API
       // const recipientPhone = "91 9221053932"; // Replace with the actual recipient phone number
       const recipientPhones = [
-        "91 9221053932",
-        "91 9930526549",
-        "91 7208981709",
+        "91 9221053932", // number for this event
+        "91 9930526549", // swapnil athavale personal number
+        "91 7208981709", // harshit patni reflex number
       ]; // Add more numbers here
 
       await sendToDoubleTick(formData, recipientPhones);
+
+      await sendThankYouMessage(formData);
 
       // On success, show a success message and reset the form
       setMessage("Registered Succesfully ✨");
@@ -105,6 +107,88 @@ function EventRegistration() {
       throw new Error("Failed to send message to Doubletick.");
     }
   };
+
+  // sending thank you to the registered people .
+  const sendThankYouMessage = async (formData) => {
+    const messageData = {
+      messages: [
+        {
+          to: `91${formData.phone}`, // Send to the user's phone number
+          content: {
+            templateName: "thank_you_message_micl_event_message", // Your newly created template
+            language: "en",
+            templateData: {
+              body: {
+                placeholders: [formData.visitDay, formData.visitTime],
+              },
+            },
+          },
+        },
+      ],
+    };
+
+    try {
+      const response = await axios.post(
+        "https://public.doubletick.io/whatsapp/message/template",
+        messageData,
+        {
+          headers: {
+            accept: "application/json",
+            "content-type": "application/json",
+            Authorization: "key_M7wvrSnTcq", // your API Key
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error("Error sending Thank You message to Doubletick:", error);
+      throw new Error("Failed to send Thank You message.");
+    }
+  };
+
+  // const sendThankYouMessage = async (formData) => {
+  //   // Remove spaces and non-numeric characters from phone number
+  //   const cleanPhone = formData.phone.replace(/\D/g, ""); // keep only digits
+
+  //   const messageData = {
+  //     messages: [
+  //       {
+  //         to: `${cleanPhone}`, // clean phone
+  //         content: {
+  //           templateName: "thank_you_message_micl_event_message",
+  //           language: "en",
+  //           templateData: {
+  //             body: {
+  //               placeholders: [
+  //                 formData.visitDay,
+  //                 formData.visitTime,
+  //               ],
+  //             },
+  //           },
+  //         },
+  //       },
+  //     ],
+  //   };
+
+  //   try {
+  //     const response = await axios.post(
+  //       "https://public.doubletick.io/whatsapp/message/template",
+  //       messageData,
+  //       {
+  //         headers: {
+  //           accept: "application/json",
+  //           "content-type": "application/json",
+  //           Authorization: "key_M7wvrSnTcq",
+  //         },
+  //       }
+  //     );
+
+  //     return response.data;
+  //   } catch (error) {
+  //     console.error("Error sending Thank You message to Doubletick:", error);
+  //     throw new Error("Failed to send Thank You message.");
+  //   }
+  // };
 
   return (
     <div className="bg-black text-white font-inter">
@@ -196,7 +280,7 @@ function EventRegistration() {
             onChange={handleChange}
             placeholder="Email"
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:ring-2 focus:ring-[#D9A441]"
-            required
+            
           />
           <select
             name="visitDay"
@@ -222,12 +306,12 @@ function EventRegistration() {
             <option value="" disabled>
               Preffered Time Slot
             </option>
-            <option value="10 - 12 ">10 - 12</option>
-            <option value="12 - 2">12 - 2</option>
-            <option value="2 - 4">2 - 4</option>
-            <option value="4 - 6">4 - 6</option>
+            <option value="10:00 am - 12:00 pm">10:00 am - 12:00 pm</option>
+            <option value="12:00 pm - 2:00 pm">12:00 pm - 2:00 pm</option>
+            <option value="2:00 pm - 4:00 pm">2:00 pm - 4:00 pm</option>
+            <option value="4:00 am - 6:00 pm">4:00 pm - 6:00 pm</option>
 
-            <option value="6 - 7">6 - 7</option>
+            <option value="6:00 pm - 7:00 pm">6:00 pm - 7:00 pm</option>
           </select>
 
           <select
@@ -235,7 +319,7 @@ function EventRegistration() {
             value={formData.bhk}
             onChange={handleChange}
             className="w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white focus:ring-2 focus:ring-[#D9A441]"
-            required
+            
           >
             <option value="" disabled>
               Prefferd BHK
