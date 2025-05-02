@@ -115,7 +115,8 @@ function EventRegistration() {
         {
           to: `91${formData.phone}`, // Send to the user's phone number
           content: {
-            templateName: "thank_you_message_micl_event_message", // Your newly created template
+            // templateName: "thank_you_message_micl_event_message", // Your newly created template
+            templateName: "micl_event_reply", // Your newly created template
             language: "en",
             templateData: {
               body: {
