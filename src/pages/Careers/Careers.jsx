@@ -150,17 +150,35 @@ function Careers() {
 
         <div className="grid md:grid-cols-3 gap-8 mt-12">
           {[
+            // add more career options here in future ...
             {
-              title: "Luxury Sales Specialist",
-              desc: "Lead high-stake transactions for elite clients, showcasing the finest properties with unmatched expertise.",
+              title: "Design Architect | Senior Architect",
+              desc: "Lead iconic luxury projects from concept to completion with bold, innovative designs.",
             },
+
             {
-              title: "Design Architect",
-              desc: "Shape the future of luxury living by designing iconic residences that redefine elegance.",
+              title: "Graphics Designer",
+              desc: "Create eye-catching visuals and marketing assets for premium real estate campaigns.",
             },
+
             {
-              title: "Senior Architect",
-              desc: "Oversee groundbreaking projects, blending innovation and artistry for the world’s most exclusive properties.",
+              title: "Human Resource Executive",
+              desc: "Manage hiring, compliance, and employee engagement to build a strong team.",
+            },
+
+            {
+              title: "Legal Associate",
+              desc: "Draft contracts and ensure legal compliance across real estate transactions.",
+            },
+
+            {
+              title: "Sales Manager | Executive",
+              desc: "Drive property sales, lead teams, and close high-value deals.",
+            },
+
+            {
+              title: "Sales Intern | Sourcing",
+              desc: "Support the sales team and gain hands-on experience in real estate selling.",
             },
           ].map((career, index) => (
             <motion.div
@@ -288,7 +306,7 @@ function Careers() {
           </select>
 
           {/* File Upload for Resume */}
-          <div className="relative">
+          {/* <div className="relative">
             <label
               htmlFor="resume"
               className="flex items-center w-full p-4 bg-gray-900/70 border border-white/20 rounded-xl text-white cursor-pointer hover:bg-gray-800/70 transition-all duration-300"
@@ -311,7 +329,7 @@ function Careers() {
               className="absolute inset-0 opacity-0 cursor-pointer"
               required
             />
-          </div>
+          </div> */}
 
           {/* Submit Button */}
           <motion.button
